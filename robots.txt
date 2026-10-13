@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cardoclinicacardiovascular.netlify.app/sitemap.xml
+Sitemap: https://cardoclinica.com.br/sitemap.xml
