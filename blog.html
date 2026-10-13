@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Metadados -->
+    <title>Blog Editorial & Artigos | Cardo Clínica</title>
+    <meta name="description" content="Artigos, orientações médicas e informações baseadas em evidências sobre Cardiologia Clínica, Cirurgia Vascular, varizes e prevenção de doenças cardiovasculares." />
+    <meta name="theme-color" content="#2D325E" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        logo: ['Oswald', 'Bebas Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        cardo: {
+                            navy: '#2D325E',
+                            crimson: '#BC2E35',
+                            maroon: '#7B161B',
+                            body: '#334155',
+                            dark: '#14172B',
+                            bg: '#F8F9FA',
+                            card: '#FFFFFF',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <style>
+        html { background-color: #F8F9FA; color: #334155; overflow-x: hidden; }
+        ::selection { background-color: #BC2E35; color: #FFFFFF; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F8F9FA; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2D325E; }
+    </style>
+    <link rel="canonical" href="https://cardoclinicacardiovascular.netlify.app/blog.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cardo Clínica Cardiovascular" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Blog Editorial & Artigos | Cardo Clínica" />
+    <meta property="og:description" content="Artigos, orientações médicas e informações baseadas em evidências sobre Cardiologia Clínica, Cirurgia Vascular, varizes e prevenção de doenças cardiovasculares." />
+    <meta property="og:url" content="https://cardoclinicacardiovascular.netlify.app/blog.html" />
+    <meta property="og:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Blog Editorial & Artigos | Cardo Clínica" />
+    <meta name="twitter:description" content="Artigos, orientações médicas e informações baseadas em evidências sobre Cardiologia Clínica, Cirurgia Vascular, varizes e prevenção de doenças cardiovasculares." />
+    <meta name="twitter:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica",
+      "name": "Cardo Clínica Cardiovascular",
+      "alternateName": "Cardo Clínica",
+      "description": "Clínica particular de Cardiologia e Cirurgia Vascular em Itabuna, Bahia, com estrutura própria de exames e atendimento humanizado.",
+      "slogan": "Tudo que te faz viver.",
+      "url": "https://cardoclinicacardiovascular.netlify.app/",
+      "telephone": "+55-73-98138-6868",
+      "email": "cardoclinica@gmail.com",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp",
+      "priceRange": "$$",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, Pix",
+      "medicalSpecialty": [
+        "Cardiovascular"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Princesa Isabel, 395, Sala 401, Edifício Itabuna Trade Center",
+        "addressLocality": "Itabuna",
+        "addressRegion": "BA",
+        "postalCode": "45607-291",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -14.8036561,
+        "longitude": -39.2759776
+      },
+      "hasMap": "https://maps.app.goo.gl/B8cgjU9etw85NmFX6",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "13:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "name": "Itabuna e região sul da Bahia"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "5"
+      },
+      "employee": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "founder": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "@graph": null
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina",
+      "name": "Eulina Maria dos Santos Chaves Cardoso",
+      "alternateName": "Dra. Eulina Maria Cardoso",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dra-eulina-maria-cardoso-cardiologista-itabuna.webp",
+      "medicalSpecialty": [
+        "Cardiology",
+        "https://schema.org/Cardiovascular"
+      ],
+      "honorificPrefix": "Dra.",
+      "jobTitle": "Cardiologista e Ecocardiografista",
+      "description": "Cardiologista e ecocardiografista em Itabuna, Bahia. CRM-BA 20685. Títulos de Especialista em Cardiologia e em Ecocardiografia pela AMB/SBC.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Instituto Nacional de Cardiologia (INC-RJ)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao",
+      "name": "João Cardoso Neto",
+      "alternateName": "Dr. João Cardoso Neto",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dr-joao-cardoso-neto-cirurgiao-vascular-itabuna.webp",
+      "medicalSpecialty": [
+        "VascularMedicine",
+        "https://schema.org/Vascular"
+      ],
+      "honorificPrefix": "Dr.",
+      "jobTitle": "Cirurgião Vascular e Endovascular",
+      "description": "Cirurgião vascular e endovascular em Itabuna, Bahia. CRM-BA 20684. Títulos de Especialista em Cirurgia Vascular, Ecografia Vascular e Angiorradiologia e Cirurgia Endovascular pela AMB/SBACV.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "PUC-RJ (Pontifícia Universidade Católica)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://cardoclinicacardiovascular.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cardoclinicacardiovascular.netlify.app/blog.html"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+</head>
+<body class="bg-cardo-bg text-cardo-body font-sans antialiased selection:bg-cardo-crimson selection:text-white">
+
+    <!-- HEADER DE NAVEGAÇÃO (Sem FAQ no cabeçalho) -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-5 flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200/70 transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="assets/images/logo-cardo-clinica-cardiovascular.webp" alt="Cardo Clínica Cardiovascular" width="461" height="400" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <!-- Menu Desktop (FAQ Removido do Cabeçalho; Blog Ativo) -->
+        <nav class="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-cardo-navy">
+            <a href="index.html" class="relative py-1 hover:text-cardo-crimson transition-colors">Início</a>
+            <a href="filosofia.html" class="relative py-1 hover:text-cardo-crimson transition-colors">01. Filosofia</a>
+            <a href="solucoes.html" class="relative py-1 hover:text-cardo-crimson transition-colors">02. Soluções</a>
+            <a href="quem-cuida-de-voce.html" class="relative py-1 hover:text-cardo-crimson transition-colors">03. Quem Cuida de Você</a>
+            <a href="exames.html" class="relative py-1 hover:text-cardo-crimson transition-colors">04. Exames</a>
+            <a href="contato.html" class="relative py-1 hover:text-cardo-crimson transition-colors">05. Contato</a>
+            <a href="blog.html" class="relative py-1 text-cardo-crimson font-bold border-b-2 border-cardo-crimson">06. Blog</a>
+        </nav>
+
+        <!-- Ações & Mobile Button -->
+        <div class="flex items-center gap-3">
+            <a 
+                href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cardo%20Clínica."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-cardo-navy text-cardo-navy hover:bg-cardo-navy hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300"
+            >
+                <span>Agendar</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-cardo-navy hover:text-cardo-crimson focus:outline-none" aria-label="Abrir Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-cardo-dark/95 backdrop-blur-xl text-white flex-col justify-center px-8">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-white hover:text-cardo-crimson text-2xl" aria-label="Fechar Menu">&times;</button>
+        <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest">
+            <a href="index.html" class="hover:text-cardo-crimson">Início</a>
+            <a href="filosofia.html" class="hover:text-cardo-crimson">01. Filosofia</a>
+            <a href="solucoes.html" class="hover:text-cardo-crimson">02. Soluções</a>
+            <a href="quem-cuida-de-voce.html" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
+            <a href="exames.html" class="hover:text-cardo-crimson">04. Exames</a>
+            <a href="contato.html" class="hover:text-cardo-crimson">05. Contato</a>
+            <a href="blog.html" class="text-cardo-crimson font-bold">06. Blog</a>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/20">
+            <a href="https://wa.me/5573981386868" target="_blank" class="w-full inline-block py-3 px-6 text-center bg-cardo-crimson rounded-full font-mono text-xs uppercase tracking-wider text-white">Agendar via WhatsApp &rarr;</a>
+        </div>
+    </div>
+
+    <!-- HERO DO BLOG -->
+    <section class="pt-36 pb-16 sm:pt-40 sm:pb-20 bg-gradient-to-b from-white to-cardo-bg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-400 mb-6">
+                <a href="index.html" class="hover:text-cardo-navy">Início</a>
+                <span>/</span>
+                <span class="text-cardo-crimson font-semibold">06. Blog Editorial</span>
+            </div>
+
+            <div class="max-w-4xl">
+                <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block mb-3">Conhecimento & Prevenção</span>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-cardo-navy leading-tight tracking-tight">
+                    Artigos & Saberes Cardiovasculares.
+                </h1>
+                <p class="font-sans text-base sm:text-xl text-slate-600 mt-6 leading-relaxed">
+                    Textos claros, aprofundados e fundamentados nas diretrizes das sociedades médicas (SBC e SBACV), redigidos com o rigor e o cuidado da nossa equipe.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTIGO DESTAQUE -->
+    <section class="py-16 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="p-8 sm:p-12 rounded-3xl bg-cardo-bg border border-gray-200/90 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center hover:border-cardo-navy hover:shadow-xl transition-all">
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="px-3 py-1 rounded-full bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold uppercase tracking-wider">Destaque Editorial</span>
+                        <span class="font-mono text-xs text-slate-400">Cardiologia Preventiva</span>
+                    </div>
+                    <a href="artigo-hipertensao-mapa.html" class="group block">
+                        <h2 class="font-serif text-2xl sm:text-4xl font-bold text-cardo-navy leading-snug group-hover:text-cardo-crimson transition-colors">
+                            Pressão alta não dói, mas pode custar caro no futuro.
+                        </h2>
+                    </a>
+                    <p class="font-sans text-sm sm:text-base text-cardo-body leading-relaxed">
+                        A hipertensão arterial raramente dá sintomas no início. Muitas pessoas convivem com níveis elevados por anos sem saber, até ocorrer um evento vascular importante. Entenda como o exame MAPA 24h ajuda a enxergar as oscilações silenciosas da pressão.
+                    </p>
+                    <div class="pt-2">
+                        <a href="artigo-hipertensao-mapa.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-cardo-maroon transition-all shadow-sm">
+                            <span>Ler Artigo</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 bg-cardo-navy text-white rounded-2xl p-8 space-y-4">
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Resumo Clínico</span>
+                    <ul class="font-sans text-xs text-slate-300 space-y-2.5">
+                        <li class="flex items-start gap-2">
+                            <span class="text-cardo-crimson font-bold">&bull;</span>
+                            <span>Hipertensão é uma doença silenciosa e assintomática na imensa maioria dos casos.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cardo-crimson font-bold">&bull;</span>
+                            <span>Medições isoladas em farmácias podem ser distorcidas por ansiedade momentânea.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-cardo-crimson font-bold">&bull;</span>
+                            <span>O MAPA 24h traz o mapa real do comportamento pressórico no seu dia a dia.</span>
+                        </li>
+                    </ul>
+                    <a href="artigo-hipertensao-mapa.html" class="inline-block mt-2 font-mono text-xs text-white hover:text-cardo-crimson underline">Acessar artigo &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GRID DE TODOS OS ARTIGOS CLÍNICOS -->
+    <section class="py-20 bg-cardo-bg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 mb-12">
+                <div>
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block mb-1">Biblioteca Médica</span>
+                    <h2 class="font-serif text-3xl font-bold text-cardo-navy">Todos os Artigos</h2>
+                </div>
+                <div class="font-mono text-xs text-slate-500">
+                    Artigos completos com base científica da SBC e SBACV
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Artigo 02 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Saúde Cardiovascular</span>
+                        </div>
+                        <a href="artigo-colesterol-alto.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Colesterol alto: o exame de sangue que muita gente ignora.</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            Como a dislipidemia se acumula silenciosamente nas artérias e por que o acompanhamento contínuo importa mais do que um resultado laboratorial isolado.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-colesterol-alto.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 03 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-crimson">Cirurgia Vascular</span>
+                        </div>
+                        <a href="artigo-varizes-sinais-iniciais.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Varizes começam antes de aparecer.</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            Sensação de peso, cansaço no final da tarde e queimação no trajeto das veias são sinais iniciais, muito antes de uma veia ficar visível na pele.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-varizes-sinais-iniciais.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 04 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Circulação Arterial</span>
+                        </div>
+                        <a href="artigo-dor-ao-caminhar.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Dor ao caminhar pode não ser cansaço ortopédico.</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            A diferença entre dor muscular comum e a dor em intervalos regulares ao caminhar (claudicação intermitente), sinal de obstrução arterial.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-dor-ao-caminhar.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 05 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Cuidados Especiais</span>
+                        </div>
+                        <a href="artigo-pe-diabetico.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Pé diabético: por que uma ferida pequena é um risco grande.</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            A relação crítica entre diabetes descompensado, circulação arterial diminuída e perda gradual da sensibilidade nos pés.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-pe-diabetico.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 06 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-crimson">Exames Diagnósticos</span>
+                        </div>
+                        <a href="artigo-guia-exames-cardiovasculares.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">ECG, Holter, MAPA e Ecocardiograma: quando fazer cada um?</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            Guia prático para entender as diferenças fundamentais entre o eletrocardiograma, a ecocardiografia e os exames de 24 horas.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-guia-exames-cardiovasculares.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 07 -->
+                <article class="p-8 rounded-3xl bg-white border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="mb-3">
+                            <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Avaliação Pré-Operatória</span>
+                        </div>
+                        <a href="artigo-risco-cirurgico.html" class="group block mb-3">
+                            <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Antes da cirurgia, o coração precisa de sinal verde.</h3>
+                        </a>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
+                            Como a estratificação de risco cirúrgico protege o paciente antes de qualquer intervenção eletiva ou hospitalar.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="artigo-risco-cirurgico.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                            <span>Ler Artigo</span> &rarr;
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COM MENU NO RODAPÉ COMPLETO (FAQ MANTIDO NO RODAPÉ) -->
+    <footer class="bg-cardo-dark text-white pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <!-- Grid Principal do Rodapé -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+                <!-- Coluna Marca -->
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-cardo-crimson flex items-center justify-center text-white font-serif font-bold text-sm">
+                            C
+                        </div>
+                        <div>
+                            <span class="font-serif font-bold text-xl text-white tracking-tight block leading-none">CARDO</span>
+                            <span class="font-mono text-[9px] uppercase tracking-widest text-slate-400 block mt-0.5">Cardiovascular</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Cardiologia Clínica e Cirurgia Vascular integradas em Itabuna, Bahia. Consultas detalhadas, exames no local e procedimentos minimamente invasivos.
+                    </p>
+                    <div class="pt-2 font-mono text-xs text-slate-300 space-y-1">
+                        <div>Dra. Eulina Cardoso &bull; CRM-BA 20685 &bull; RQE 12693 / 12771</div>
+                        <div>Dr. João Cardoso Neto &bull; CRM-BA 20684 &bull; RQE 13076 / 13077</div>
+                    </div>
+                </div>
+
+                <!-- Coluna Menu de Páginas (FAQ MANTIDO NO RODAPÉ + BLOG) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Páginas</span>
+                    <ul class="space-y-2 font-mono text-xs text-slate-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="filosofia.html" class="hover:text-white transition-colors">01. Filosofia</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">02. Soluções</a></li>
+                        <li><a href="quem-cuida-de-voce.html" class="hover:text-white transition-colors">03. Quem Cuida de Você</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">04. Exames</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">05. Contato</a></li>
+                        <li><a href="blog.html" class="text-white font-bold hover:text-cardo-crimson transition-colors">06. Blog</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">Perguntas Frequentes (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Especialidades & Exames -->
+                <div class="lg:col-span-2 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Especialidades</span>
+                    <ul class="space-y-2 font-mono text-xs text-slate-300">
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cardiologia Clínica</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cirurgia Vascular</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Laser & Endolaser</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Ecocardiograma</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Doppler Vascular</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">MAPA & Holter 24h</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna Contato Rápido -->
+                <div class="lg:col-span-3 space-y-4">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Atendimento</span>
+                    <a 
+                        href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cardo%20Clínica." 
+                        target="_blank"
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cardo-crimson text-white font-mono text-xs font-semibold hover:bg-cardo-maroon transition-all"
+                    >
+                        <span>WhatsApp (73) 98138-6868</span>
+                    </a>
+                    <p class="font-sans text-xs text-slate-400 leading-relaxed">
+                        Edifício Itabuna Trade Center, Sala 401, Av. Princesa Isabel, 395 - Banco Raso, Itabuna - BA.
+                    </p>
+                    <p class="font-mono text-[11px] text-slate-500">
+                        E-mail: cardoclinica@gmail.com
+                    </p>
+                </div>
+            </div>
+
+            <!-- Faixa Inferior de Direitos -->
+            <div class="pt-8 text-center font-mono text-[11px] text-slate-400 space-y-2">
+                <div class="flex items-center justify-center gap-4">
+                    <a href="termos-e-condicoes.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                    <span>&bull;</span>
+                    <a href="politica-de-privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                </div>
+                <div>
+                    &copy; 2026 Cardo Clínica Cardiovascular. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        // Mobile Menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-close-btn');
+        if (btn && menu && closeBtn) {
+            btn.addEventListener('click', () => {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            });
+            closeBtn.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            });
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

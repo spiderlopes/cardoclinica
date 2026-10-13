@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #334155;
+    background-color: #F8F9FA;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #2D325E;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* =========================================================================
+   CARDO CLINICA - SAAS PREMIUM DESIGN SYSTEM
+   ========================================================================= */
+
+/* Primary Navy & Crimson Brand Colors */
+:root {
+  --cardo-navy: #2D325E;
+  --cardo-crimson: #BC2E35;
+  --cardo-maroon: #7B161B;
+  --cardo-darkred: #882025;
+  --cardo-body: #334155;
+  --cardo-bg: #F8F9FA;
+}
+
+/* Minimalist Elevated Cards with Smooth Transitions */
+.cardo-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(45, 50, 94, 0.08), 0 8px 10px -6px rgba(45, 50, 94, 0.04);
+  border-color: #CBD5E1;
+}
+
+/* Crimson CTA Button */
+.cardo-btn-primary {
+  background-color: #BC2E35;
+  color: #FFFFFF;
+  border-radius: 0.625rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(188, 46, 53, 0.15);
+}
+
+.cardo-btn-primary:hover {
+  background-color: #7B161B;
+  box-shadow: 0 4px 12px rgba(188, 46, 53, 0.28);
+  transform: translateY(-1px);
+}
+
+/* Navy Outline Button */
+.cardo-btn-secondary {
+  border: 2px solid #2D325E;
+  color: #2D325E;
+  background: transparent;
+  border-radius: 0.625rem;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardo-btn-secondary:hover {
+  background-color: #2D325E;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(45, 50, 94, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Icon Containers */
+.cardo-icon-box {
+  background-color: #F8F9FA;
+  color: #BC2E35;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardo-card:hover .cardo-icon-box {
+  background-color: #FEF2F2;
+  color: #BC2E35;
+}
+
+/* Pulse Heart Animation */
+@keyframes pulse-gentle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 2.5s ease-in-out infinite;
+}
+
+
+

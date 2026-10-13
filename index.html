@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Metadados -->
+    <title>Cardo Clínica | Experiência Editorial em Saúde Cardiovascular</title>
+    <meta name="description" content="Cardiologia de precisão e Cirurgia Vascular em Itabuna. Dra. Eulina Cardoso e Dr. João Cardoso Neto. Experiência humanizada e diagnóstico integrado." />
+    <meta name="theme-color" content="#2D325E" />
+    
+    <!-- Google Fonts: Oswald, Bebas Neue, Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        logo: ['Oswald', 'Bebas Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        cardo: {
+                            navy: '#2D325E',       /* Azul Marinho Editorial */
+                            crimson: '#BC2E35',    /* Vermelho Carmesim Acento */
+                            maroon: '#7B161B',     /* Bordô Nobre */
+                            body: '#334155',       /* Slate Neutro */
+                            dark: '#14172B',       /* Navy Profundo para Seções Escuras */
+                            bg: '#F8F9FA',         /* Fundo Claro Editorial */
+                            card: '#FFFFFF',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Garante que a página sempre abra nesta seção Hero no topo -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+    </script>
+
+    <style>
+        /* Smooth Scroll & Typography Setup */
+        html {
+            background-color: #F8F9FA;
+            color: #334155;
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Vertical Typography (Numero8 Style) */
+        .text-vertical-rl {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .text-vertical-lr {
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+        }
+
+        /* Text Mask Wrap */
+        .char-mask {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            padding-top: 0.08em;
+            padding-bottom: 0.08em;
+            margin-top: -0.08em;
+            margin-bottom: -0.08em;
+        }
+
+        .char-inner {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
+
+        .exame-card {
+            will-change: transform, opacity;
+        }
+
+        /* Grid Background Pattern */
+        .editorial-grid {
+            background-size: 80px 80px;
+            background-image: 
+                linear-gradient(to right, rgba(45, 50, 94, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(45, 50, 94, 0.03) 1px, transparent 1px);
+        }
+
+        /* WebGL Liquid Container */
+        .liquid-canvas-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .liquid-canvas-container canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F9FA;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2D325E;
+        }
+
+        /* Asymmetrical Overlay effects */
+        .blend-overlay {
+            mix-blend-mode: multiply;
+        }
+
+        /* Carrossel da Estrutura: trilho sem barra de rolagem visível */
+        .no-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .estrutura-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background-color: #CBD5E1;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .estrutura-dot.is-active {
+            width: 24px;
+            background-color: #2D325E;
+        }
+    </style>
+    <link rel="canonical" href="https://cardoclinicacardiovascular.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cardo Clínica Cardiovascular" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Cardo Clínica | Experiência Editorial em Saúde Cardiovascular" />
+    <meta property="og:description" content="Cardiologia de precisão e Cirurgia Vascular em Itabuna. Dra. Eulina Cardoso e Dr. João Cardoso Neto. Experiência humanizada e diagnóstico integrado." />
+    <meta property="og:url" content="https://cardoclinicacardiovascular.netlify.app/" />
+    <meta property="og:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cardo Clínica | Experiência Editorial em Saúde Cardiovascular" />
+    <meta name="twitter:description" content="Cardiologia de precisão e Cirurgia Vascular em Itabuna. Dra. Eulina Cardoso e Dr. João Cardoso Neto. Experiência humanizada e diagnóstico integrado." />
+    <meta name="twitter:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica",
+      "name": "Cardo Clínica Cardiovascular",
+      "alternateName": "Cardo Clínica",
+      "description": "Clínica particular de Cardiologia e Cirurgia Vascular em Itabuna, Bahia, com estrutura própria de exames e atendimento humanizado.",
+      "slogan": "Tudo que te faz viver.",
+      "url": "https://cardoclinicacardiovascular.netlify.app/",
+      "telephone": "+55-73-98138-6868",
+      "email": "cardoclinica@gmail.com",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp",
+      "priceRange": "$$",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, Pix",
+      "medicalSpecialty": [
+        "Cardiovascular"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Princesa Isabel, 395, Sala 401, Edifício Itabuna Trade Center",
+        "addressLocality": "Itabuna",
+        "addressRegion": "BA",
+        "postalCode": "45607-291",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -14.8036561,
+        "longitude": -39.2759776
+      },
+      "hasMap": "https://maps.app.goo.gl/B8cgjU9etw85NmFX6",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "13:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "name": "Itabuna e região sul da Bahia"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "5"
+      },
+      "employee": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "founder": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "@graph": null
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina",
+      "name": "Eulina Maria dos Santos Chaves Cardoso",
+      "alternateName": "Dra. Eulina Maria Cardoso",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dra-eulina-maria-cardoso-cardiologista-itabuna.webp",
+      "medicalSpecialty": [
+        "Cardiology",
+        "https://schema.org/Cardiovascular"
+      ],
+      "honorificPrefix": "Dra.",
+      "jobTitle": "Cardiologista e Ecocardiografista",
+      "description": "Cardiologista e ecocardiografista em Itabuna, Bahia. CRM-BA 20685. Títulos de Especialista em Cardiologia e em Ecocardiografia pela AMB/SBC.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Instituto Nacional de Cardiologia (INC-RJ)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao",
+      "name": "João Cardoso Neto",
+      "alternateName": "Dr. João Cardoso Neto",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dr-joao-cardoso-neto-cirurgiao-vascular-itabuna.webp",
+      "medicalSpecialty": [
+        "VascularMedicine",
+        "https://schema.org/Vascular"
+      ],
+      "honorificPrefix": "Dr.",
+      "jobTitle": "Cirurgião Vascular e Endovascular",
+      "description": "Cirurgião vascular e endovascular em Itabuna, Bahia. CRM-BA 20684. Títulos de Especialista em Cirurgia Vascular, Ecografia Vascular e Angiorradiologia e Cirurgia Endovascular pela AMB/SBACV.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "PUC-RJ (Pontifícia Universidade Católica)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    }
+  ]
+}
+    </script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+</head>
+<body class="editorial-grid selection:bg-cardo-crimson selection:text-white">
+
+    <!-- ==========================================
+         TOP NAVIGATION: Editorial & Minimalista
+         ========================================== -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-6 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-gray-200/60 transition-all duration-300">
+        <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover flex items-center gap-3 group">
+            <img src="assets/images/logo-cardo-clinica-cardiovascular.webp" alt="Cardo Clínica Cardiovascular" width="461" height="400" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <!-- Menu Links com Tipografia Refinada -->
+        <nav class="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-cardo-navy">
+            <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover relative py-1 text-cardo-crimson font-bold">
+                Início
+            </a>
+            <a href="filosofia.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                01. Filosofia
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="solucoes.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                02. Soluções
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="quem-cuida-de-voce.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                03. Quem Cuida de Você
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="exames.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                04. Exames
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="contato.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                05. Contato
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="blog.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+                06. Blog
+                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </nav>
+
+        <!-- CTA Header & Mobile Button -->
+        <div class="flex items-center gap-3">
+            <a 
+                href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cardo%20Clínica."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-cardo-navy text-cardo-navy hover:bg-cardo-navy hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 hover:shadow-lg"
+            >
+                <span>Agendar</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-cardo-navy hover:text-cardo-crimson focus:outline-none" aria-label="Abrir Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-cardo-dark/95 backdrop-blur-xl text-white flex-col justify-center px-8">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-white hover:text-cardo-crimson text-2xl" aria-label="Fechar Menu">&times;</button>
+        <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest">
+            <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="text-cardo-crimson font-bold">Início</a>
+            <a href="filosofia.html" class="hover:text-cardo-crimson">01. Filosofia</a>
+            <a href="solucoes.html" class="hover:text-cardo-crimson">02. Soluções</a>
+            <a href="quem-cuida-de-voce.html" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
+            <a href="exames.html" class="hover:text-cardo-crimson">04. Exames</a>
+            <a href="contato.html" class="hover:text-cardo-crimson">05. Contato</a>
+            <a href="blog.html" class="hover:text-cardo-crimson">06. Blog</a>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/20">
+            <a href="https://wa.me/5573981386868" target="_blank" class="w-full inline-block py-3 px-6 text-center bg-cardo-crimson rounded-full font-mono text-xs uppercase tracking-wider text-white">Agendar via WhatsApp &rarr;</a>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         1. HERO SECTION COM BACKGROUND 3D (Three.js) & ASSYMETRIC TYPOGRAPHY
+         ========================================== -->
+    <section id="inicio" class="min-h-screen relative flex items-center justify-center pt-24 pb-20 sm:pb-24 overflow-hidden bg-cardo-bg">
+        
+        <!-- Canvas 3D Interativo (Three.js Heart/Torus Wireframe Glass) -->
+        <div id="hero-3d-canvas" class="absolute inset-0 z-0 pointer-events-none opacity-85"></div>
+
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12">
+            
+            <!-- Título Gigante Editorial em Tipografia do Logotipo (Oswald) com Quebra Assimétrica e Fluidez Mobile -->
+            <h1 class="space-y-1 sm:space-y-2 overflow-hidden sm:overflow-visible">
+                <div class="split-reveal font-logo uppercase tracking-tighter text-5xl xs:text-6xl sm:text-8xl md:text-9xl font-bold text-cardo-navy leading-[0.92] sm:leading-[0.88]">
+                    CARDO
+                </div>
+
+                <div class="flex flex-col lg:flex-row lg:items-center gap-2 sm:gap-6 lg:gap-12 pl-0 sm:pl-16 lg:pl-28">
+                    <div class="split-reveal font-serif italic font-normal text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-cardo-crimson leading-[0.95] sm:leading-[0.92] tracking-tight">
+                        Clínica
+                    </div>
+                    <span class="hidden lg:block font-mono text-xs uppercase tracking-widest text-slate-400 max-w-[200px] border-l border-slate-300 pl-4">
+                        Cardiologia e Cirurgia Vascular integradas
+                    </span>
+                </div>
+
+                <div class="pl-0 sm:pl-24 lg:pl-48">
+                    <div class="split-reveal font-logo uppercase tracking-tighter text-[9.5vw] xs:text-[9vw] sm:text-7xl md:text-8xl lg:text-9xl font-bold text-cardo-navy leading-[0.92] sm:leading-[0.88] max-w-full">
+                        CARDIOVASCULAR
+                    </div>
+                </div>
+            </h1>
+
+            <!-- Bloco Inferior Perfeitamente Alinhado e Simétrico -->
+            <div class="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-gray-200/90 flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-10">
+                <div class="max-w-2xl space-y-4">
+                    <p class="font-sans text-sm sm:text-base lg:text-lg text-cardo-body leading-relaxed">
+                        A união do rigor científico da <strong>Cardiologia Clínica</strong> e da vanguarda minimamente invasiva da <strong>Cirurgia Vascular</strong> em Itabuna, Bahia. Consultas sem pressa e diagnósticos completos no local.
+                    </p>
+                    
+                    <!-- Botões com Tamanho e Espaçamento Perfeitos no Mobile e Desktop -->
+                    <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-3 sm:gap-4 pt-1 sm:pt-2">
+                        <a 
+                            href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cardo%20Clínica." 
+                            target="_blank"
+                            class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-cardo-crimson text-white rounded-full font-mono text-xs uppercase tracking-wider hover:bg-cardo-maroon transition-all duration-300 hover:scale-[1.02] shadow-md text-center"
+                        >
+                            <span>Agendar Atendimento</span>
+                            <span>&rarr;</span>
+                        </a>
+                        <a 
+                            href="#solucoes" 
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-cardo-navy/60 text-cardo-navy rounded-full font-mono text-xs uppercase tracking-wider hover:bg-cardo-navy hover:text-white transition-all duration-300 text-center"
+                        >
+                            Explorar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card de Destaque Simétrico e Proporcional -->
+                <div class="w-full md:w-auto shrink-0 flex justify-start md:justify-end">
+                    <div class="w-full sm:w-auto p-4 sm:p-5 bg-white/90 backdrop-blur-xs border border-gray-200/90 rounded-2xl shadow-xs flex items-center gap-4 sm:gap-5">
+                        <div class="text-cardo-crimson font-bold text-3xl sm:text-4xl font-serif leading-none">05+</div>
+                        <div class="border-l border-gray-200/90 pl-3.5 sm:pl-4 font-mono">
+                            <div class="text-cardo-navy text-xs sm:text-sm font-bold uppercase tracking-wider">Exames Próprios</div>
+                            <div class="text-slate-500 text-[9px] sm:text-[10px] uppercase tracking-wider mt-0.5 whitespace-nowrap">Realizados no Local</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- ==========================================
+         2. FILOSOFIA & CONCEITO CLÍNICO INTEGRADO
+         ========================================== -->
+    <section id="experiencia" class="py-28 lg:py-36 bg-white relative overflow-hidden border-t border-b border-gray-200">
+        
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <!-- Coluna Imagem: Carrossel "Conheça Nossa Clínica" -->
+                <div class="lg:col-span-6 flex flex-col gap-5">
+                    <div class="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden shadow-lg border border-gray-200 group cursor-hover bg-slate-100">
+
+                        <!-- Trilho do Carrossel -->
+                        <div
+                            id="estrutura-track"
+                            class="flex h-full overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
+                            role="region"
+                            aria-label="Galeria de fotos da estrutura da Cardo Clínica Cardiovascular"
+                        >
+                            <!-- Slide 1 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/01-consultorio-titulos-cardo-clinica-itabuna.webp" alt="Consultório médico da Cardo Clínica Cardiovascular, com maca de exame e títulos de especialista emoldurados na parede, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Consultório &amp; Títulos de Especialista</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/02-escritorio-medico-cardo-clinica-itabuna.webp" alt="Escritório médico da Cardo Clínica Cardiovascular, com modelo anatômico do coração sobre a mesa, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Espaço de Atendimento</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/03-sala-procedimentos-vasculares-cardo-clinica.webp" alt="Sala de procedimentos vasculares da Cardo Clínica Cardiovascular, equipada para tratamento de varizes em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Sala de Procedimentos Vasculares</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/04-sala-tratamento-laser-varizes-cardo-clinica.webp" alt="Sala de tratamento a laser para varizes na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Sala de Tratamento a Laser</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/05-ecografo-doppler-vascular-cardo-clinica.webp" alt="Ecógrafo portátil para Eco Color Doppler vascular na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Ecógrafo para Doppler Vascular</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 6 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/06-equipamento-resfriamento-laser-cardo-clinica.webp" alt="Equipamento de resfriamento de pele usado nos tratamentos a laser da Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Tecnologia de Conforto no Procedimento</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 7 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/07-aparelho-endolaser-tratamento-varizes-cardo-clinica.webp" alt="Aparelho de endolaser para tratamento de varizes na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Endolaser para Varizes</h4>
+                                </div>
+                            </div>
+
+                            <!-- Slide 8 -->
+                            <div class="estrutura-slide snap-start flex-shrink-0 w-full h-full relative">
+                                <img src="assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" alt="Logotipo da Cardo Clínica Cardiovascular na parede da recepção, em Itabuna, Bahia" loading="lazy" width="1600" height="1067" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-700 ease-out" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-cardo-dark/80 via-transparent to-transparent opacity-85"></div>
+                                <div class="absolute bottom-6 left-6 right-16 text-white">
+                                    <h4 class="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold">Cardo Clínica Cardiovascular</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Setas de Navegação sobre a imagem -->
+                        <button
+                            id="estrutura-prev"
+                            aria-label="Ver foto anterior"
+                            class="cursor-hover absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-cardo-navy transition-all duration-300 z-10"
+                        >
+                            <span class="text-base">&larr;</span>
+                        </button>
+                        <button
+                            id="estrutura-next"
+                            aria-label="Ver próxima foto"
+                            class="cursor-hover absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-cardo-navy transition-all duration-300 z-10"
+                        >
+                            <span class="text-base">&rarr;</span>
+                        </button>
+                    </div>
+
+                    <!-- Indicadores (Dots) do Carrossel -->
+                    <div id="estrutura-dots" class="flex items-center justify-center gap-2 -mt-1"></div>
+
+                    <!-- Cartão Informativo de Apoio Perfeitamente Alinhado Abaixo da Imagem (Sem Sobreposições) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-5 rounded-2xl bg-cardo-bg border border-gray-200/80 flex flex-col justify-between">
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-cardo-crimson">Atendimento Particular</span>
+                            <p class="font-sans text-xs text-cardo-body mt-2 leading-relaxed">
+                                Consultas com tempo de escuta estendido e avaliação minuciosa sem a pressa dos convênios.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-cardo-bg border border-gray-200/80 flex flex-col justify-between">
+                            <span class="font-mono text-xs font-bold uppercase tracking-wider text-cardo-navy">Sinergia Clínica</span>
+                            <p class="font-sans text-xs text-cardo-body mt-2 leading-relaxed">
+                                Cardiologia e Cirurgia Vascular compartilhando diagnósticos imediatos sob o mesmo teto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna de Texto e Pilares Clínicos -->
+                <div class="lg:col-span-6 flex flex-col justify-center space-y-7">
+                    <div>
+                        <h2 class="split-reveal font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cardo-navy leading-tight tracking-tight">
+                            A Medicina como Arte de Escutar e Tratar com Precisão.
+                        </h2>
+                    </div>
+
+                    <p class="font-sans text-base text-cardo-body leading-relaxed">
+                        Coração e circulação não funcionam separados, e o seu cuidado também não deveria. Na <strong class="text-cardo-navy">Cardo Clínica</strong>, a avaliação do coração e o tratamento das doenças vasculares caminham juntos, em uma conversa contínua entre especialistas. O resultado é uma conduta pensada para você, com discussões clínicas ágeis e um plano de cuidado que respeita a sua história.
+                    </p>
+
+                    <!-- Lista Editorial de Pilares Simétricos e Limpos -->
+                    <div class="space-y-3.5 pt-2 border-t border-gray-100">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-cardo-crimson/30 hover:bg-cardo-bg transition-all duration-300 shadow-xs cursor-hover group">
+                            <div class="w-8 h-8 rounded-xl bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-cardo-crimson group-hover:text-white transition-colors">
+                                01
+                            </div>
+                            <div>
+                                <h5 class="font-serif font-bold text-base text-cardo-navy group-hover:text-cardo-crimson transition-colors">Integração Diagnóstica Direta</h5>
+                                <p class="font-sans text-xs text-slate-500 mt-1 leading-relaxed">Discussão multidisciplinar contínua entre cardiologista e cirurgião vascular sem fragmentação do cuidado.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-cardo-crimson/30 hover:bg-cardo-bg transition-all duration-300 shadow-xs cursor-hover group">
+                            <div class="w-8 h-8 rounded-xl bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-cardo-crimson group-hover:text-white transition-colors">
+                                02
+                            </div>
+                            <div>
+                                <h5 class="font-serif font-bold text-base text-cardo-navy group-hover:text-cardo-crimson transition-colors">Tecnologia Minimamente Invasiva</h5>
+                                <p class="font-sans text-xs text-slate-500 mt-1 leading-relaxed">Procedimentos modernos para varizes com Endolaser e Laser Transdérmico com recuperação rápida e sem cortes.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-gray-100 hover:border-cardo-crimson/30 hover:bg-cardo-bg transition-all duration-300 shadow-xs cursor-hover group">
+                            <div class="w-8 h-8 rounded-xl bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold flex items-center justify-center flex-shrink-0 group-hover:bg-cardo-crimson group-hover:text-white transition-colors">
+                                03
+                            </div>
+                            <div>
+                                <h5 class="font-serif font-bold text-base text-cardo-navy group-hover:text-cardo-crimson transition-colors">Estrutura Própria de Exames</h5>
+                                <p class="font-sans text-xs text-slate-500 mt-1 leading-relaxed">Ecocardiograma, Doppler Vascular, Holter e MAPA 24h realizados e laudados diretamente no consultório.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão Indicativo Saiba mais direcionado para a página Filosofia -->
+                    <div class="pt-3">
+                        <a 
+                            href="filosofia.html" 
+                            class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-hover"
+                        >
+                            <span>Saiba mais</span>
+                            <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. SOLUÇÕES & ESPECIALIDADES: ROLAGEM VERTICAL COM ENTRADA DINÂMICA
+         ========================================== -->
+    <section id="solucoes" class="py-24 sm:py-32 lg:py-36 bg-[#1e2438] text-white relative overflow-hidden border-b border-white/10">
+        
+        <!-- Detalhe Tipográfico de Fundo Sutil -->
+        <div class="absolute -right-6 top-1/4 text-vertical-rl font-mono text-8xl font-black text-white/[0.04] uppercase tracking-tighter select-none pointer-events-none z-0">
+            INTEGRAÇÃO
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+            
+            <!-- Cabeçalho da Seção com Botão Saiba mais -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+                <div class="max-w-3xl">
+                    <h2 class="split-reveal font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+                        Áreas de Atuação Integradas
+                    </h2>
+                    <p class="font-sans text-base sm:text-lg text-slate-200 mt-4 leading-relaxed max-w-2xl">
+                        Da prevenção e diagnóstico precoce aos procedimentos vasculares minimamente invasivos e exames completos realizados no próprio consultório.
+                    </p>
+                </div>
+                <div class="pt-2 md:pt-0">
+                    <a 
+                        href="solucoes.html" 
+                        class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white hover:bg-cardo-crimson text-cardo-navy hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover flex-shrink-0"
+                    >
+                        <span>Saiba mais</span>
+                        <span class="w-5 h-5 rounded-full bg-cardo-navy/10 group-hover:bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-1 transition-all">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid Vertical com Animação de Entrada ao Rolar a Página -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                
+                <!-- Card 00: Visão Geral / Filosofia do Cuidado (Destaque) -->
+                <div class="solucao-card md:col-span-2 lg:col-span-1 flex flex-col justify-between p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:border-cardo-crimson/50 hover:bg-white/[0.1] transition-all duration-500 shadow-xl cursor-hover group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs text-cardo-crimson uppercase tracking-widest font-bold">Visão Sistêmica</span>
+                            <span class="w-2 h-2 rounded-full bg-cardo-crimson animate-pulse"></span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold leading-snug group-hover:text-cardo-crimson transition-colors">
+                            Cuidado Cardiovascular de Ponta a Ponta
+                        </h3>
+                        <p class="font-sans text-sm text-slate-200 leading-relaxed mt-4">
+                            Tratamento integrado que conecta prevenção cardiológica, cirurgia vascular de vanguarda e diagnóstico imediato em um único espaço no Itabuna Trade Center.
+                        </p>
+                        
+                        <div class="mt-6 pt-6 border-t border-white/15 space-y-3 font-sans text-xs text-slate-200">
+                            <div class="flex items-center gap-2">
+                                <span class="text-cardo-crimson font-mono font-bold">&bull;</span>
+                                <span>Discussão de caso multidisciplinar</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-cardo-crimson font-mono font-bold">&bull;</span>
+                                <span>Condutas ágeis e sem fragmentação</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-cardo-crimson font-mono font-bold">&bull;</span>
+                                <span>Ambiente privativo e acolhedor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden sm:flex pt-6 mt-8 border-t border-white/15 font-mono text-xs text-slate-300 items-center justify-end">
+                        <a href="https://wa.me/5573981386868" target="_blank" class="text-white group-hover:text-cardo-crimson transition-colors flex items-center gap-1.5 font-semibold">
+                            <span>Falar com a Clínica</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 01: Cardiologia Clínica -->
+                <div class="solucao-card flex flex-col justify-between p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:border-cardo-crimson/50 hover:bg-white/[0.1] transition-all duration-500 shadow-xl cursor-hover group">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold">01 / Cardiologia</span>
+                            <span class="font-mono text-xs uppercase tracking-wider text-slate-300">Dra. Eulina Cardoso</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold group-hover:text-cardo-crimson transition-colors mb-4">
+                            Cardiologia Clínica
+                        </h3>
+                        <p class="font-sans text-sm text-slate-200 leading-relaxed">
+                            Manejo de hipertensão arterial, insuficiência cardíaca, arritmias, avaliação minuciosa de risco cirúrgico e acompanhamento preventivo.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-white/15 flex justify-end items-center font-mono text-xs">
+                        <a href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20com%20a%20Dra.%20Eulina%20Cardoso." target="_blank" class="text-white group-hover:text-cardo-crimson transition-colors font-semibold flex items-center gap-1">
+                            <span>Agendar</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 02: Cirurgia Vascular & Varizes -->
+                <div class="solucao-card flex flex-col justify-between p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:border-cardo-crimson/50 hover:bg-white/[0.1] transition-all duration-500 shadow-xl cursor-hover group">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold">02 / Cirurgia Vascular</span>
+                            <span class="font-mono text-xs uppercase tracking-wider text-slate-300">Dr. João Cardoso</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold group-hover:text-cardo-crimson transition-colors mb-4">
+                            Cirurgia Vascular & Laser
+                        </h3>
+                        <p class="font-sans text-sm text-slate-200 leading-relaxed">
+                            Tratamento moderno de varizes e vasinhos com Laser Transdérmico, Endolaser e Espuma. Prevenção de AVC (doença carotídea) e tratamento de trombose.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-white/15 flex justify-end items-center font-mono text-xs">
+                        <a href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20com%20o%20Dr.%20João%20Cardoso." target="_blank" class="text-white group-hover:text-cardo-crimson transition-colors font-semibold flex items-center gap-1">
+                            <span>Agendar</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 03: Diagnóstico & Exames no Local -->
+                <div class="solucao-card flex flex-col justify-between p-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur-md hover:border-cardo-crimson/50 hover:bg-white/[0.1] transition-all duration-500 shadow-xl cursor-hover group">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold">03 / Diagnóstico</span>
+                            <span class="font-mono text-xs uppercase tracking-wider text-slate-300">No Consultório</span>
+                        </div>
+                        <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold group-hover:text-cardo-crimson transition-colors mb-4">
+                            Exames Cardiovasculares
+                        </h3>
+                        <p class="font-sans text-sm text-slate-200 leading-relaxed">
+                            Ecocardiograma Transtorácico, Doppler Vascular de Carótidas e Membros, Holter 24 horas e MAPA 24h realizados diretamente pelos especialistas.
+                        </p>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-white/15 flex justify-end items-center font-mono text-xs">
+                        <a href="#exames" class="text-white group-hover:text-cardo-crimson transition-colors font-semibold flex items-center gap-1">
+                            <span>Ver Exames</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 04: Estrutura Particular & Consultas Sem Pressa (Destaque Duplo) -->
+                <div class="solucao-card md:col-span-2 flex flex-col sm:flex-row justify-between gap-6 p-8 rounded-3xl bg-cardo-crimson/15 border border-cardo-crimson/40 backdrop-blur-md hover:border-cardo-crimson transition-all duration-500 shadow-xl cursor-hover group">
+                    <div class="flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="font-mono text-xs text-cardo-crimson uppercase tracking-widest font-bold block mb-3">Atendimento Particular</span>
+                            <h3 class="font-serif text-2xl sm:text-3xl text-white font-bold leading-snug">
+                                Consultas com Tempo Ampliado de Escuta e Investigação
+                            </h3>
+                            <p class="font-sans text-sm text-slate-200 leading-relaxed mt-4">
+                                Cada paciente tem seu caso estudado com profundidade e rigor metodológico. Os exames complementares necessários podem ser realizados no próprio consultório, economizando seu tempo e evitando deslocamentos.
+                            </p>
+                        </div>
+                        <div class="mt-6 flex flex-wrap gap-4 font-mono text-xs text-slate-200">
+                            <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/15">Sem filas de convênio</span>
+                            <span class="px-3 py-1.5 rounded-full bg-white/10 border border-white/15">Laudos no local</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sm:w-64 flex flex-col justify-center sm:border-l sm:border-white/15 sm:pl-6">
+                        <a 
+                            href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20marcar%20uma%20consulta%20na%20Cardo%20Clínica." 
+                            target="_blank" 
+                            class="w-full py-4 px-6 rounded-2xl bg-cardo-crimson text-white text-center font-mono text-xs uppercase tracking-wider hover:bg-cardo-maroon transition-all font-semibold shadow-lg hover:shadow-cardo-crimson/20"
+                        >
+                            Agendar Horário &rarr;
+                        </a>
+                        <span class="text-[11px] font-sans text-slate-300 text-center mt-3 block">
+                            Atendimento via WhatsApp
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botão Indicativo Saiba mais ao fim da grade direcionando para Soluções -->
+            <div class="mt-12 sm:mt-16 flex justify-center">
+                <a 
+                    href="solucoes.html" 
+                    class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/[0.08] hover:bg-cardo-crimson text-white border border-white/20 hover:border-cardo-crimson font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-lg group cursor-hover"
+                >
+                    <span>Saiba mais sobre Nossas Soluções</span>
+                    <span class="w-5 h-5 rounded-full bg-white/10 group-hover:bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-1 transition-all">&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. CORPO CLÍNICO: APRESENTAÇÃO EDITORIAL E PROFISSIONAL
+         ========================================== -->
+    <section id="corpo-clinico" class="py-32 bg-cardo-bg relative overflow-hidden border-b border-gray-200">
+        
+        <!-- Detalhe Tipográfico de Fundo (Numero8 Style) -->
+        <div class="absolute right-6 top-1/4 text-vertical-rl font-mono text-8xl font-black text-gray-200/40 uppercase tracking-tighter select-none pointer-events-none z-0">
+            ESPECIALISTAS
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+            
+            <!-- Cabeçalho da Seção -->
+            <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <h2 class="split-reveal font-serif text-4xl sm:text-6xl font-bold text-cardo-navy leading-tight">
+                    Quem Cuida de Você
+                </h2>
+                <p class="font-sans text-sm sm:text-[15px] text-justify text-cardo-body mt-5 leading-relaxed">
+                    Antes de falar de títulos, vale falar do essencial: aqui você é recebido por médicos que escolheram a escuta como método. Por trás de cada consulta existe formação médica sólida, residência formal e títulos de especialista registrados no CREMEB. E tudo isso é aplicado da forma que mais importa para você, com acolhimento, atenção individualizada e o tempo que cada caso pede, na Cardo Clínica Cardiovascular.
+                </p>
+                <!-- Botão Indicativo Saiba mais direcionado para Quem Cuida de Você -->
+                <div class="mt-8 flex justify-center">
+                    <a 
+                        href="quem-cuida-de-voce.html" 
+                        class="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover"
+                    >
+                        <span>Saiba mais</span>
+                        <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid de Médicos: Cards Editoriais com Proporção Impecável -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 max-w-5xl mx-auto">
+                
+                <!-- Médico 01: Dra. Eulina Cardoso -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between cursor-hover group">
+                    <div>
+                        <!-- Fotografia Limpa com Moldura Editorial e Transição P&B para Cor -->
+                        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-8 bg-slate-100 border border-gray-200 shadow-inner">
+                            <img
+                                src="assets/images/dra-eulina-maria-cardoso-cardiologista-itabuna.webp"
+                                alt="Dra. Eulina Maria dos Santos Chaves Cardoso, cardiologista e ecocardiografista em Itabuna, CRM-BA 20685"
+                                loading="lazy"
+                                class="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                            />
+                        </div>
+
+                        <!-- Identificação Médica -->
+                        <div class="mb-4">
+                            <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block mb-1">
+                                CRM-BA 20685 &bull; RQE 12693 / 12771
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">
+                                Dra. Eulina Cardoso
+                            </h3>
+                            <p class="font-sans text-sm text-slate-500 mt-1 font-medium">
+                                Cardiologista Clínica & Ecocardiografista
+                            </p>
+                        </div>
+                        
+                        <p class="font-sans text-sm text-cardo-body leading-relaxed mb-6">
+                            Uma consulta que começa pela escuta. A Dra. Eulina acredita que o coração se cuida com rigor técnico e com calma: exame clínico cardiológico aprofundado, investigação diagnóstica na medida certa e uma conversa clara sobre cada passo do tratamento. Atendimento humanizado e individualizado, seguindo as diretrizes da Sociedade Brasileira de Cardiologia.
+                        </p>
+
+                        <!-- Pílulas de Foco de Atuação -->
+                        <div class="flex items-center gap-1.5 sm:gap-2 pt-2 border-t border-gray-100">
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">Ecocardiograma</span>
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">Risco Cirúrgico</span>
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">MAPA & Holter 24h</span>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Ação Centralizado em Linha Única -->
+                    <div class="mt-8 pt-6 border-t border-gray-100 flex justify-center">
+                        <a 
+                            href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20a%20Dra.%20Eulina%20Cardoso."
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider hover:bg-cardo-maroon transition-all duration-300 font-semibold shadow-md hover:scale-[1.02] text-center whitespace-nowrap"
+                        >
+                            <span>Agendar Dra. Eulina</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Médico 02: Dr. João Cardoso Neto -->
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between cursor-hover group">
+                    <div>
+                        <!-- Fotografia Limpa com Moldura Editorial e Transição P&B para Cor -->
+                        <div class="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-8 bg-slate-100 border border-gray-200 shadow-inner">
+                            <img
+                                src="assets/images/dr-joao-cardoso-neto-cirurgiao-vascular-itabuna.webp"
+                                alt="Dr. João Cardoso Neto, cirurgião vascular e endovascular em Itabuna, CRM-BA 20684"
+                                loading="lazy"
+                                class="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                            />
+                        </div>
+
+                        <!-- Identificação Médica -->
+                        <div class="mb-4">
+                            <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block mb-1">
+                                CRM-BA 20684 &bull; RQE 13076 / 13077
+                            </span>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">
+                                Dr. João Cardoso Neto
+                            </h3>
+                            <p class="font-sans text-sm text-slate-500 mt-1 font-medium">
+                                Cirurgião Vascular & Ecografista Vascular
+                            </p>
+                        </div>
+                        
+                        <p class="font-sans text-sm text-cardo-body leading-relaxed mb-6">
+                            O cuidado com as pernas começa muito antes de qualquer procedimento. O Dr. João avalia cada caso com atenção individualizada, investiga a circulação com os exames certos e explica as opções com clareza, da prevenção aos tratamentos mais específicos, como laser, escleroterapia e cirurgia vascular. Atendimento humanizado, baseado nas diretrizes da SBACV.
+                        </p>
+
+                        <!-- Pílulas de Foco de Atuação em Linha Única -->
+                        <div class="flex items-center gap-1.5 sm:gap-2 pt-2 border-t border-gray-100">
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">Laser & Endolaser</span>
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">Doppler Vascular</span>
+                            <span class="flex-1 text-center px-1.5 sm:px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200/80 font-mono text-[10px] sm:text-[11px] text-slate-600 whitespace-nowrap">Prevenção de AVC</span>
+                        </div>
+                    </div>
+
+                    <!-- Botão de Ação Centralizado em Linha Única -->
+                    <div class="mt-8 pt-6 border-t border-gray-100 flex justify-center">
+                        <a 
+                            href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Dr.%20João%20Cardoso."
+                            target="_blank"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-cardo-navy text-white font-mono text-xs uppercase tracking-wider hover:bg-cardo-crimson transition-all duration-300 font-semibold shadow-md hover:scale-[1.02] text-center whitespace-nowrap"
+                        >
+                            <span>Agendar Dr. João</span>
+                            <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botão Indicativo Saiba mais direcionando para Quem Cuida de Você -->
+            <div class="mt-14 sm:mt-16 flex justify-center">
+                <a 
+                    href="quem-cuida-de-voce.html" 
+                    class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white hover:bg-cardo-crimson text-cardo-navy hover:text-white border border-gray-200/90 hover:border-cardo-crimson font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-hover"
+                >
+                    <span>Saiba mais sobre Quem Cuida de Você</span>
+                    <span class="w-5 h-5 rounded-full bg-cardo-navy/10 group-hover:bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-1 transition-all">&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. CATÁLOGO DE EXAMES: GRID EDITORIAL
+         ========================================== -->
+    <section id="exames" class="py-32 bg-white relative overflow-hidden border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div>
+                    <h2 class="split-reveal font-serif text-4xl sm:text-6xl font-bold text-cardo-navy">
+                        Exames no Próprio Consultório
+                    </h2>
+                </div>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+                    <p class="font-sans text-sm text-slate-500 max-w-md">
+                        Agilidade e segurança: saia da consulta com seu exame cardiológico ou vascular agendado ou realizado diretamente no mesmo local.
+                    </p>
+                    <a 
+                        href="exames.html" 
+                        class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover flex-shrink-0"
+                    >
+                        <span>Saiba mais</span>
+                        <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Exame 1 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/ecocardiograma-transtoracico-cardo-clinica.webp" alt="Equipamento de ecocardiograma transtorácico usado na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-crimson block mb-2">01 / CARDIOLOGIA</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">Ecocardiograma Transtorácico</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Ultrassonografia com Doppler para avaliação anatômica e funcional das câmaras cardíacas e válvulas em tempo real.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Exame 2 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/eletrocardiograma-ecg-cardo-clinica.webp" alt="Equipamento de eletrocardiograma (ECG) usado na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-crimson block mb-2">02 / CARDIOLOGIA</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">Eletrocardiograma (ECG)</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Registro elétrico do ritmo e da frequência dos batimentos para triagem de arritmias e risco cirúrgico.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Exame 3 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/holter-24-horas-cardo-clinica.webp" alt="Aparelho de Holter 24 horas usado na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-crimson block mb-2">03 / MONITORAMENTO 24H</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">Holter de 24 Horas</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Gravação contínua dos batimentos cardíacos durante a rotina do paciente para diagnóstico de palpitações e síncopes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Exame 4 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/mapa-24-horas-cardo-clinica.webp" alt="Aparelho de MAPA 24 horas para monitorização da pressão arterial, usado na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-navy block mb-2">04 / PRESSÃO ARTERIAL</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">MAPA 24 Horas</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Monitorização ambulatorial da pressão arterial ao longo do dia e do sono para ajuste rigoroso de anti-hipertensivos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Exame 5 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/doppler-vascular-portatil-cardo-clinica.webp" alt="Doppler vascular portátil usado para exames de membros na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-navy block mb-2">05 / CIRURGIA VASCULAR</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">Doppler Vascular de Membros</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Mapeamento venoso e arterial das pernas para planejamento cirúrgico de varizes e diagnóstico de trombose (TVP).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Exame 6 -->
+                <div class="exame-card rounded-3xl bg-cardo-bg border border-gray-200 hover:border-cardo-navy hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                    <div class="aspect-[4/3] overflow-hidden bg-slate-200">
+                        <img src="assets/images/exames/ecocardiograma-transtoracico-cardo-clinica.webp" alt="Equipamento de ultrassom usado para Doppler de carótidas e vertebrais na Cardo Clínica Cardiovascular, em Itabuna" loading="lazy" width="900" height="672" class="w-full h-full object-cover filter grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" />
+                    </div>
+                    <div class="p-8">
+                        <span class="font-mono text-xs font-bold text-cardo-navy block mb-2">06 / CIRURGIA VASCULAR</span>
+                        <h4 class="font-serif text-xl font-bold text-cardo-navy mb-3 group-hover:text-cardo-crimson transition-colors">Doppler de Carótidas e Vertebrais</h4>
+                        <p class="font-sans text-xs text-slate-600 leading-relaxed">
+                            Avaliação da irrigação cerebral e detecção de placas ateroscleróticas para prevenção assertiva de AVC.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botão Indicativo Saiba mais direcionando para Exames -->
+            <div class="mt-14 sm:mt-16 flex justify-center">
+                <a 
+                    href="exames.html" 
+                    class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover"
+                >
+                    <span>Saiba mais sobre Nossos Exames</span>
+                    <span class="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         6. LOCALIZAÇÃO & FOOTER EDITORIAL (Numero8 Style)
+         ========================================== -->
+    <footer id="contato" class="bg-cardo-dark text-white pt-24 pb-12 relative overflow-hidden">
+        
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/10">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Localização & Contato</span>
+                    <h3 class="font-serif text-4xl sm:text-6xl font-bold leading-tight">
+                        Cuidado cardiovascular com padrão de excelência.
+                    </h3>
+                    <p class="font-sans text-slate-300 text-base max-w-lg leading-relaxed">
+                        Edifício Itabuna Trade Center, Sala 401, Avenida Princesa Isabel, nº 395, Bairro Banco Raso, Itabuna - BA, CEP 45607-291.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6 flex flex-col justify-between gap-8 lg:pl-12">
+                    <div class="space-y-4">
+                        <span class="font-mono text-xs uppercase tracking-widest text-slate-400 block">Atendimento por Agendamento</span>
+                        <a 
+                            href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20Cardo%20Clínica."
+                            target="_blank"
+                            class="cursor-hover inline-flex items-center gap-4 text-2xl sm:text-4xl font-serif text-white hover:text-cardo-crimson transition-colors"
+                        >
+                            <span>(73) 98138-6868</span>
+                            <span class="text-xs font-mono px-3 py-1 rounded-full bg-cardo-crimson text-white">WhatsApp</span>
+                        </a>
+                        <p class="font-mono text-xs text-slate-400">E-mail: cardoclinica@gmail.com</p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 font-mono text-xs uppercase tracking-wider">
+                        <a href="https://wa.me/5573981386868" target="_blank" class="cursor-hover px-6 py-3 rounded-full bg-cardo-crimson text-white hover:bg-cardo-maroon transition-all">
+                            Agendar Agora &rarr;
+                        </a>
+                        <a href="#experiencia" class="cursor-hover px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition-all">
+                            Voltar ao Topo &uarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MENU NO RODAPÉ COMPLETO -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 py-16 border-b border-white/10">
+                <!-- Coluna 1: Páginas Principais -->
+                <div class="lg:col-span-4 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Menu de Navegação</span>
+                    <ul class="space-y-2.5 font-mono text-xs text-slate-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>Início</a></li>
+                        <li><a href="filosofia.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>01. Filosofia</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>02. Soluções</a></li>
+                        <li><a href="quem-cuida-de-voce.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>03. Quem Cuida de Você</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>04. Exames Próprios</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>05. Contato & Localização</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>06. Blog Editorial</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>Perguntas Frequentes (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 2: Especialidades & Procedimentos -->
+                <div class="lg:col-span-4 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Especialidades & Cuidados</span>
+                    <ul class="space-y-2 font-mono text-xs text-slate-300">
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cardiologia Clínica & Preventiva</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cirurgia Vascular & Angiologia</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Tratamento de Varizes com Endolaser</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Laser Transdérmico & Escleroterapia</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Ecocardiograma Transtorácico</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Doppler Vascular e de Carótidas</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">MAPA e Holter 24 Horas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna 3: Atendimento e Localização -->
+                <div class="lg:col-span-4 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Informações & Agendamento</span>
+                    <p class="font-sans text-xs text-slate-300 leading-relaxed">
+                        Consultas sem pressa e exames sob o mesmo teto no centro corporativo de Itabuna.
+                    </p>
+                    <div class="font-mono text-xs text-slate-300 space-y-1.5 pt-1">
+                        <div><strong class="text-white">Edifício Itabuna Trade Center</strong></div>
+                        <div>Sala 401 &bull; Av. Princesa Isabel, nº 395</div>
+                        <div>Bairro Banco Raso, Itabuna - BA</div>
+                        <div class="text-slate-400 pt-1">WhatsApp: (73) 98138-6868</div>
+                        <div class="text-slate-400">E-mail: cardoclinica@gmail.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center font-mono text-[11px] text-slate-400 space-y-2">
+                <div class="flex items-center justify-center gap-4">
+                    <a href="termos-e-condicoes.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                    <span>&bull;</span>
+                    <a href="politica-de-privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                </div>
+                <div>
+                    &copy; 2026 Cardo Clínica Cardiovascular. Todos os direitos reservados.
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         SCRIPTS: THREE.JS, LIQUID SHADER, GSAP & LENIS
+         ========================================== -->
+    <script>
+        // -------------------------------------------------------------
+        // 1. LENIS SMOOTH SCROLL INITIALIZATION
+        // -------------------------------------------------------------
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        // Força início estritamente no topo (Hero Section)
+        lenis.scrollTo(0, { immediate: true });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Conecta Lenis ao ScrollTrigger do GSAP
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+        });
+        gsap.ticker.lagSmoothing(0);
+
+        // Garante abertura firme no topo do site (Hero) ao carregar ou recarregar
+        window.addEventListener('pageshow', () => {
+            window.scrollTo(0, 0);
+            if (lenis) lenis.scrollTo(0, { immediate: true });
+        });
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            if (lenis) lenis.scrollTo(0, { immediate: true });
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                if (lenis) lenis.scrollTo(0, { immediate: true });
+            }, 50);
+        });
+
+        // -------------------------------------------------------------
+        // 2. BACKGROUND 3D INTERATIVO NO HERO (THREE.JS)
+        // Objeto geométrico translúcido low-poly com rotação e parallax 3D
+        // -------------------------------------------------------------
+        const heroContainer = document.getElementById('hero-3d-canvas');
+        if (heroContainer && window.THREE) {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 24;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            heroContainer.appendChild(renderer.domElement);
+
+            // Objeto Geométrico Translúcido (Icosahedron / Torus Knot Híbrido)
+            const geometry = new THREE.IcosahedronGeometry(7.5, 2);
+            
+            // Material translúcido estilo vidro com iluminação sutil
+            const material = new THREE.MeshPhongMaterial({
+                color: 0x2D325E,
+                emissive: 0x1A1C36,
+                specular: 0xBC2E35,
+                shininess: 80,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.22,
+            });
+
+            const mesh = new THREE.Mesh(geometry, material);
+            scene.add(mesh);
+
+            // Núcleo Translúcido Interno Carmesim
+            const innerGeo = new THREE.TorusKnotGeometry(3.6, 0.8, 64, 16);
+            const innerMat = new THREE.MeshBasicMaterial({
+                color: 0xBC2E35,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.12,
+            });
+            const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+            scene.add(innerMesh);
+
+            // Iluminação
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+
+            const pointLight = new THREE.PointLight(0xBC2E35, 2, 50);
+            pointLight.position.set(10, 10, 15);
+            scene.add(pointLight);
+
+            let targetRotX = 0;
+            let targetRotY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+                const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+                targetRotY = nx * 0.45;
+                targetRotX = ny * 0.45;
+            });
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            function animate3D() {
+                mesh.rotation.y += 0.003;
+                mesh.rotation.x += 0.0015;
+                innerMesh.rotation.y -= 0.004;
+                innerMesh.rotation.z += 0.002;
+
+                mesh.rotation.x += (targetRotX - mesh.rotation.x) * 0.05;
+                mesh.rotation.y += (targetRotY - mesh.rotation.y) * 0.05;
+
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate3D);
+            }
+            animate3D();
+        }
+
+        // -------------------------------------------------------------
+        // 4. GSAP TEXT REVEAL & WARP (DIVISÃO EM CARACTERES + OVERFLOW HIDDEN)
+        // translateY(100%) -> 0%, rotation 10deg -> 0deg com ease: "power4.out"
+        // -------------------------------------------------------------
+        gsap.registerPlugin(ScrollTrigger);
+
+        const splitElements = document.querySelectorAll('.split-reveal');
+        splitElements.forEach(el => {
+            const text = el.innerText.trim();
+            el.innerHTML = '';
+            
+            // Divide palavras e letras envolvendo em máscaras overflow-hidden
+            const words = text.split(' ');
+            words.forEach((word, wordIndex) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.style.display = 'inline-block';
+                wordSpan.style.whiteSpace = 'nowrap';
+                
+                word.split('').forEach(char => {
+                    const mask = document.createElement('span');
+                    mask.className = 'char-mask';
+                    
+                    const inner = document.createElement('span');
+                    inner.className = 'char-inner';
+                    inner.innerText = char;
+                    inner.style.transform = 'translateY(110%) rotate(10deg)';
+                    inner.style.transformOrigin = 'bottom left';
+                    
+                    mask.appendChild(inner);
+                    wordSpan.appendChild(mask);
+                });
+
+                el.appendChild(wordSpan);
+                if (wordIndex < words.length - 1) {
+                    const space = document.createTextNode(' ');
+                    el.appendChild(space);
+                }
+            });
+
+            const inners = el.querySelectorAll('.char-inner');
+            gsap.to(inners, {
+                y: '0%',
+                rotate: 0,
+                duration: 1.4,
+                stagger: 0.02,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // -------------------------------------------------------------
+        // 5. ANIMAÇÃO VERTICAL DOS CARDS DE ESPECIALIDADES AO ROLAR
+        // -------------------------------------------------------------
+        const solucaoCards = document.querySelectorAll('.solucao-card');
+        if (solucaoCards.length > 0) {
+            gsap.fromTo(solucaoCards, 
+                { 
+                    y: 60, 
+                    opacity: 0,
+                    scale: 0.96
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.9,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: "#solucoes",
+                        start: "top 75%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        }
+
+        // -------------------------------------------------------------
+        // 6. ANIMAÇÃO SUAVE DE FADE-IN COM DESLIZE DOS CARDS DE EXAMES (GSAP)
+        // -------------------------------------------------------------
+        const exameCards = document.querySelectorAll('.exame-card');
+        if (exameCards.length > 0) {
+            ScrollTrigger.batch(exameCards, {
+                start: "top 88%",
+                once: true,
+                onEnter: batch => gsap.fromTo(batch, 
+                    { 
+                        y: 45, 
+                        opacity: 0, 
+                        scale: 0.97 
+                    }, 
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        scale: 1, 
+                        duration: 0.85, 
+                        stagger: 0.12, 
+                        ease: "power3.out",
+                        overwrite: true
+                    }
+                )
+            });
+        }
+
+        // -------------------------------------------------------------
+        // 7. CARROSSEL DA ESTRUTURA DA CLÍNICA (scroll-snap + dots + autoplay)
+        // -------------------------------------------------------------
+        (function initEstruturaCarousel() {
+            const track = document.getElementById('estrutura-track');
+            if (!track) return;
+
+            const slides = Array.from(track.querySelectorAll('.estrutura-slide'));
+            const prevBtn = document.getElementById('estrutura-prev');
+            const nextBtn = document.getElementById('estrutura-next');
+            const dotsWrap = document.getElementById('estrutura-dots');
+
+            // Monta os indicadores (dots)
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'estrutura-dot' + (i === 0 ? ' is-active' : '');
+                dot.setAttribute('aria-label', 'Ir para a foto ' + (i + 1));
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsWrap.appendChild(dot);
+            });
+            const dots = Array.from(dotsWrap.children);
+
+            // Posição do slide dentro do trilho, independente do offsetParent
+            // (robusto mesmo com padding/margens negativas do layout).
+            function slidePosition(slide) {
+                return slide.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+            }
+
+            function getActiveIndex() {
+                let closest = 0;
+                let minDist = Infinity;
+                slides.forEach((slide, i) => {
+                    const dist = Math.abs(slidePosition(slide) - track.scrollLeft);
+                    if (dist < minDist) {
+                        minDist = dist;
+                        closest = i;
+                    }
+                });
+                return closest;
+            }
+
+            function updateDots() {
+                const active = getActiveIndex();
+                dots.forEach((d, i) => d.classList.toggle('is-active', i === active));
+            }
+
+            function goToSlide(i) {
+                const target = slides[i];
+                if (!target) return;
+                track.scrollTo({
+                    left: slidePosition(target),
+                    behavior: 'smooth'
+                });
+            }
+
+            prevBtn?.addEventListener('click', () => {
+                const active = getActiveIndex();
+                goToSlide(Math.max(0, active - 1));
+            });
+            nextBtn?.addEventListener('click', () => {
+                const active = getActiveIndex();
+                goToSlide(Math.min(slides.length - 1, active + 1));
+            });
+
+            let scrollTimeout;
+            track.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateDots, 100);
+            });
+
+            // Autoplay com pausa ao interagir
+            let autoplayTimer;
+            function startAutoplay() {
+                autoplayTimer = setInterval(() => {
+                    const active = getActiveIndex();
+                    const next = active >= slides.length - 1 ? 0 : active + 1;
+                    goToSlide(next);
+                }, 5000);
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayTimer);
+            }
+            track.addEventListener('mouseenter', stopAutoplay);
+            track.addEventListener('mouseleave', startAutoplay);
+            track.addEventListener('touchstart', stopAutoplay, { passive: true });
+
+            startAutoplay();
+        })();
+
+        // 7. MENU MOBILE TOGGLE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        if (mobileBtn && mobileMenu && mobileCloseBtn) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            });
+            mobileCloseBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

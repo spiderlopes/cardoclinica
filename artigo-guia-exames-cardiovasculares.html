@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECG, Holter, MAPA e Ecocardiograma: guia comparativo | Cardo Clínica</title>
+    <meta name="description" content="Guia completo para entender as diferenças fundamentais e indicações de ECG, Ecocardiograma, MAPA e Holter 24h na Cardo Clínica em Itabuna." />
+    <meta name="theme-color" content="#2D325E" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['Space Mono', 'monospace'],
+                        logo: ['Oswald', 'Bebas Neue', 'sans-serif'],
+                    },
+                    colors: {
+                        cardo: {
+                            navy: '#2D325E',
+                            crimson: '#BC2E35',
+                            maroon: '#7B161B',
+                            body: '#334155',
+                            dark: '#14172B',
+                            bg: '#F8F9FA',
+                            card: '#FFFFFF',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+    <style>
+        html { background-color: #F8F9FA; color: #334155; overflow-x: hidden; }
+        ::selection { background-color: #BC2E35; color: #FFFFFF; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F8F9FA; }
+        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2D325E; }
+    </style>
+    <link rel="canonical" href="https://cardoclinicacardiovascular.netlify.app/artigo-guia-exames-cardiovasculares.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cardo Clínica Cardiovascular" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="ECG, Holter, MAPA e Ecocardiograma: guia comparativo | Cardo Clínica" />
+    <meta property="og:description" content="Guia completo para entender as diferenças fundamentais e indicações de ECG, Ecocardiograma, MAPA e Holter 24h na Cardo Clínica em Itabuna." />
+    <meta property="og:url" content="https://cardoclinicacardiovascular.netlify.app/artigo-guia-exames-cardiovasculares.html" />
+    <meta property="og:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ECG, Holter, MAPA e Ecocardiograma: guia comparativo | Cardo Clínica" />
+    <meta name="twitter:description" content="Guia completo para entender as diferenças fundamentais e indicações de ECG, Ecocardiograma, MAPA e Holter 24h na Cardo Clínica em Itabuna." />
+    <meta name="twitter:image" content="https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp" />
+    <meta name="robots" content="index, follow" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalClinic",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica",
+      "name": "Cardo Clínica Cardiovascular",
+      "alternateName": "Cardo Clínica",
+      "description": "Clínica particular de Cardiologia e Cirurgia Vascular em Itabuna, Bahia, com estrutura própria de exames e atendimento humanizado.",
+      "slogan": "Tudo que te faz viver.",
+      "url": "https://cardoclinicacardiovascular.netlify.app/",
+      "telephone": "+55-73-98138-6868",
+      "email": "cardoclinica@gmail.com",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp",
+      "priceRange": "$$",
+      "currenciesAccepted": "BRL",
+      "paymentAccepted": "Dinheiro, Cartão de Crédito, Cartão de Débito, Pix",
+      "medicalSpecialty": [
+        "Cardiovascular"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Princesa Isabel, 395, Sala 401, Edifício Itabuna Trade Center",
+        "addressLocality": "Itabuna",
+        "addressRegion": "BA",
+        "postalCode": "45607-291",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -14.8036561,
+        "longitude": -39.2759776
+      },
+      "hasMap": "https://maps.app.goo.gl/B8cgjU9etw85NmFX6",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "13:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "13:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "name": "Itabuna e região sul da Bahia"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.2",
+        "reviewCount": "5"
+      },
+      "employee": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "founder": [
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+        },
+        {
+          "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao"
+        }
+      ],
+      "@graph": null
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina",
+      "name": "Eulina Maria dos Santos Chaves Cardoso",
+      "alternateName": "Dra. Eulina Maria Cardoso",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dra-eulina-maria-cardoso-cardiologista-itabuna.webp",
+      "medicalSpecialty": [
+        "Cardiology",
+        "https://schema.org/Cardiovascular"
+      ],
+      "honorificPrefix": "Dra.",
+      "jobTitle": "Cardiologista e Ecocardiografista",
+      "description": "Cardiologista e ecocardiografista em Itabuna, Bahia. CRM-BA 20685. Títulos de Especialista em Cardiologia e em Ecocardiografia pela AMB/SBC.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Instituto Nacional de Cardiologia (INC-RJ)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://cardoclinicacardiovascular.netlify.app/#dr-joao",
+      "name": "João Cardoso Neto",
+      "alternateName": "Dr. João Cardoso Neto",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/dr-joao-cardoso-neto-cirurgiao-vascular-itabuna.webp",
+      "medicalSpecialty": [
+        "VascularMedicine",
+        "https://schema.org/Vascular"
+      ],
+      "honorificPrefix": "Dr.",
+      "jobTitle": "Cirurgião Vascular e Endovascular",
+      "description": "Cirurgião vascular e endovascular em Itabuna, Bahia. CRM-BA 20684. Títulos de Especialista em Cirurgia Vascular, Ecografia Vascular e Angiorradiologia e Cirurgia Endovascular pela AMB/SBACV.",
+      "worksFor": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "affiliation": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UESC-BA (Universidade Estadual de Santa Cruz)"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "PUC-RJ (Pontifícia Universidade Católica)"
+        }
+      ],
+      "url": "https://cardoclinicacardiovascular.netlify.app/quem-cuida-de-voce.html"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://cardoclinicacardiovascular.netlify.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://cardoclinicacardiovascular.netlify.app/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Guia de Exames",
+          "item": "https://cardoclinicacardiovascular.netlify.app/artigo-guia-exames-cardiovasculares.html"
+        }
+      ]
+    },
+    {
+      "@type": "MedicalWebPage",
+      "headline": "ECG, Holter, MAPA e Ecocardiograma: guia comparativo",
+      "description": "Guia completo para entender as diferenças fundamentais e indicações de ECG, Ecocardiograma, MAPA e Holter 24h na Cardo Clínica em Itabuna.",
+      "url": "https://cardoclinicacardiovascular.netlify.app/artigo-guia-exames-cardiovasculares.html",
+      "inLanguage": "pt-BR",
+      "image": "https://cardoclinicacardiovascular.netlify.app/assets/images/estrutura/08-fachada-logotipo-cardo-clinica-cardiovascular.webp",
+      "author": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+      },
+      "publisher": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#clinica"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://cardoclinicacardiovascular.netlify.app/artigo-guia-exames-cardiovasculares.html"
+      },
+      "medicalAudience": {
+        "@type": "MedicalAudience",
+        "audienceType": "Patient"
+      },
+      "reviewedBy": {
+        "@id": "https://cardoclinicacardiovascular.netlify.app/#dra-eulina"
+      }
+    }
+  ]
+}
+    </script>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+</head>
+<body class="bg-cardo-bg text-cardo-body font-sans antialiased selection:bg-cardo-crimson selection:text-white">
+
+    <header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-5 flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200/70 transition-all duration-300">
+        <a href="index.html" class="flex items-center gap-3 group">
+            <img src="assets/images/logo-cardo-clinica-cardiovascular.webp" alt="Cardo Clínica Cardiovascular" width="461" height="400" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-cardo-navy">
+            <a href="index.html" class="relative py-1 hover:text-cardo-crimson transition-colors">Início</a>
+            <a href="filosofia.html" class="relative py-1 hover:text-cardo-crimson transition-colors">01. Filosofia</a>
+            <a href="solucoes.html" class="relative py-1 hover:text-cardo-crimson transition-colors">02. Soluções</a>
+            <a href="quem-cuida-de-voce.html" class="relative py-1 hover:text-cardo-crimson transition-colors">03. Quem Cuida de Você</a>
+            <a href="exames.html" class="relative py-1 hover:text-cardo-crimson transition-colors">04. Exames</a>
+            <a href="contato.html" class="relative py-1 hover:text-cardo-crimson transition-colors">05. Contato</a>
+            <a href="blog.html" class="relative py-1 text-cardo-crimson font-bold border-b-2 border-cardo-crimson">06. Blog</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+            <a href="https://wa.me/5573981386868?text=Olá!%20Gostaria%20de%20agendar%20um%20exame%20na%20Cardo%20Clínica." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-cardo-navy text-cardo-navy hover:bg-cardo-navy hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300">
+                <span>Agendar</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>
+            </a>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-cardo-navy hover:text-cardo-crimson focus:outline-none" aria-label="Abrir Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-cardo-dark/95 backdrop-blur-xl text-white flex-col justify-center px-8">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-white hover:text-cardo-crimson text-2xl" aria-label="Fechar Menu">&times;</button>
+        <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest">
+            <a href="index.html" class="hover:text-cardo-crimson">Início</a>
+            <a href="filosofia.html" class="hover:text-cardo-crimson">01. Filosofia</a>
+            <a href="solucoes.html" class="hover:text-cardo-crimson">02. Soluções</a>
+            <a href="quem-cuida-de-voce.html" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
+            <a href="exames.html" class="hover:text-cardo-crimson">04. Exames</a>
+            <a href="contato.html" class="hover:text-cardo-crimson">05. Contato</a>
+            <a href="blog.html" class="text-cardo-crimson font-bold">06. Blog</a>
+        </div>
+        <div class="mt-8 pt-8 border-t border-white/20">
+            <a href="https://wa.me/5573981386868" target="_blank" class="w-full inline-block py-3 px-6 text-center bg-cardo-crimson rounded-full font-mono text-xs uppercase tracking-wider text-white">Agendar via WhatsApp &rarr;</a>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO DO ARTIGO -->
+    <article class="pt-36 sm:pt-40 pb-20">
+        <header class="max-w-4xl mx-auto px-6 sm:px-12 mb-12">
+            <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-400 mb-6">
+                <a href="index.html" class="hover:text-cardo-navy">Início</a>
+                <span>/</span>
+                <a href="blog.html" class="hover:text-cardo-navy">Blog</a>
+                <span>/</span>
+                <span class="text-cardo-crimson font-semibold truncate">Guia de Exames</span>
+            </div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold uppercase tracking-wider">Exames Diagnósticos</span>
+                <span class="font-mono text-xs text-slate-400">Diretrizes SBC</span>
+            </div>
+
+            <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-cardo-navy leading-tight tracking-tight mb-6">
+                ECG, Holter, MAPA e Ecocardiograma: qual exame pedir para cada situação?
+            </h1>
+
+            <p class="font-sans text-base sm:text-xl text-slate-600 leading-relaxed italic border-l-4 border-cardo-crimson pl-4 sm:pl-6 my-6">
+                Um guia comparativo para entender com clareza o que cada método investiga e como eles se complementam para construir um diagnóstico seguro.
+            </p>
+
+            <div class="flex items-center gap-4 pt-4 border-t border-gray-200">
+                <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden border border-slate-300">
+                    <img src="assets/images/dra-eulina-maria-cardoso-cardiologista-itabuna.webp" alt="Dra. Eulina Cardoso" loading="lazy" class="w-full h-full object-cover object-top">
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-sm text-cardo-navy block">Por Dra. Eulina Cardoso</span>
+                    <span class="font-mono text-xs text-slate-400 block">Cardiologista e Ecocardiografista &bull; CRM-BA 20685 &bull; RQE 12693</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-3xl mx-auto px-6 sm:px-12 font-sans text-sm sm:text-base text-cardo-body leading-relaxed space-y-6">
+            <p class="text-base sm:text-lg text-slate-700 leading-relaxed font-normal first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-cardo-crimson first-letter:mr-2 first-letter:float-left">
+                É muito frequente pacientes chegarem ao consultório com dúvidas como: "Doutora, fiz um eletrocardiograma e deu normal, ainda preciso fazer o ecocardiograma?" ou "Qual é a diferença entre Holter e MAPA se os dois ficam 24 horas presos no corpo?". Cada um desses exames olha para uma dimensão completamente diferente do sistema cardiovascular.
+            </p>
+
+            <!-- TABELA COMPARATIVA EDITORIAL -->
+            <div class="my-8 overflow-x-auto">
+                <table class="w-full text-xs text-left border border-gray-200 rounded-2xl overflow-hidden bg-white">
+                    <thead class="bg-cardo-navy text-white font-mono uppercase text-[10px] tracking-wider">
+                        <tr>
+                            <th class="p-4">Exame</th>
+                            <th class="p-4">O que avalia?</th>
+                            <th class="p-4">Duração</th>
+                            <th class="p-4">Principal Indicação</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="p-4 font-bold text-cardo-navy font-serif">ECG</td>
+                            <td class="p-4">Eletricidade instantânea do coração</td>
+                            <td class="p-4 font-mono text-slate-500">~10 min</td>
+                            <td class="p-4">Triagem inicial, arritmias agudas, dor súbita no peito.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-cardo-navy font-serif">Ecocardiograma</td>
+                            <td class="p-4">Estrutura física, músculos e válvulas (Ultrassom)</td>
+                            <td class="p-4 font-mono text-slate-500">~30 min</td>
+                            <td class="p-4">Sopros, dilatações, força de bombeamento (FE), infarto prévio.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-cardo-navy font-serif">MAPA 24h</td>
+                            <td class="p-4">Pressão arterial contínua em vigília e sono</td>
+                            <td class="p-4 font-mono text-slate-500">24 horas</td>
+                            <td class="p-4">Hipertensão, picos pressóricos noturnos, efeito do jaleco branco.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-4 font-bold text-cardo-navy font-serif">Holter 24h</td>
+                            <td class="p-4">Ritmo elétrico contínuo em 24h</td>
+                            <td class="p-4 font-mono text-slate-500">24 horas</td>
+                            <td class="p-4">Palpitações intermitentes, desmaios inexplicados (síncopes).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-cardo-navy pt-6">A Analogia da Casa</h2>
+            <p>
+                Para simplificar: imagine o seu coração como uma residência.
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-slate-700">
+                <li>O <strong>Eletrocardiograma (ECG)</strong> é como testar os interruptores elétricos: avalia se a fiação está conduzindo a corrente elétrica adequadamente naquele instante.</li>
+                <li>O <strong>Ecocardiograma</strong> é como o engenheiro examinando as vigas, paredes, portas e o encanamento: vê a espessura das paredes musculares, mede o tamanho das câmaras cardíacas e avalia se as válvulas abrem e fecham sem vazamentos.</li>
+                <li>O <strong>Holter 24h</strong> é uma câmera de segurança que grava a fiação elétrica por 24 horas: descobre se alguma lâmpada pisca de madrugada quando você dorme.</li>
+                <li>O <strong>MAPA 24h</strong> é o hidrômetro que mede a pressão da água nos canos o dia todo, checando se a pressão estoura a tubulação.</li>
+            </ul>
+
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-cardo-navy pt-6">Realização no Próprio Consultório</h2>
+            <p>
+                Na Cardo Clínica, todos esses exames são disponibilizados na própria unidade no Itabuna Trade Center, com laudos emitidos pelos próprios especialistas que acompanham seu histórico, sem fragmentar suas informações em múltiplos laboratórios.
+            </p>
+
+            <div class="mt-12 p-8 rounded-3xl bg-cardo-bg border border-gray-200 text-center space-y-4">
+                <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Centro Diagnóstico Próprio</span>
+                <h3 class="font-serif text-2xl font-bold text-cardo-navy">Precisa realizar seus exames do coração?</h3>
+                <p class="font-sans text-xs sm:text-sm text-slate-600 max-w-lg mx-auto">
+                    Agende seus exames com rapidez, pontualidade e acolhimento direto pelo WhatsApp.
+                </p>
+                <div class="pt-2">
+                    <a href="https://wa.me/5573981386868?text=Olá!%20Li%20o%20Guia%20de%20Exames%20e%20gostaria%20de%20agendar%20meus%20exames%20na%20Cardo." target="_blank" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-cardo-maroon transition-all shadow-md">
+                        <span>Agendar Exames via WhatsApp</span>
+                        <span>&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between gap-4 font-mono text-xs">
+                <a href="artigo-pe-diabetico.html" class="text-slate-500 hover:text-cardo-navy flex items-center gap-1">
+                    &larr; Anterior: Pé Diabético
+                </a>
+                <a href="artigo-risco-cirurgico.html" class="text-cardo-crimson font-semibold hover:underline flex items-center gap-1">
+                    Próximo: Risco Cirúrgico &rarr;
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <!-- FOOTER COM MENU NO RODAPÉ COMPLETO -->
+    <footer class="bg-cardo-dark text-white pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 sm:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
+                <div class="lg:col-span-4 space-y-4">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-cardo-crimson flex items-center justify-center text-white font-serif font-bold text-sm">C</div>
+                        <div>
+                            <span class="font-serif font-bold text-xl text-white tracking-tight block leading-none">CARDO</span>
+                            <span class="font-mono text-[9px] uppercase tracking-widest text-slate-400 block mt-0.5">Cardiovascular</span>
+                        </div>
+                    </a>
+                    <p class="font-sans text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Cardiologia Clínica e Cirurgia Vascular integradas em Itabuna, Bahia. Consultas detalhadas, exames no local e procedimentos minimamente invasivos.
+                    </p>
+                    <div class="pt-2 font-mono text-xs text-slate-300 space-y-1">
+                        <div>Dra. Eulina Cardoso &bull; CRM-BA 20685 &bull; RQE 12693 / 12771</div>
+                        <div>Dr. João Cardoso Neto &bull; CRM-BA 20684 &bull; RQE 13076 / 13077</div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Páginas</span>
+                    <ul class="space-y-2 font-mono text-xs text-slate-300">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="filosofia.html" class="hover:text-white transition-colors">01. Filosofia</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">02. Soluções</a></li>
+                        <li><a href="quem-cuida-de-voce.html" class="hover:text-white transition-colors">03. Quem Cuida de Você</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">04. Exames</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">05. Contato</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">06. Blog</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">Perguntas Frequentes (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Especialidades</span>
+                    <ul class="space-y-2 font-mono text-xs text-slate-300">
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cardiologia Clínica</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cirurgia Vascular</a></li>
+                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Laser & Endolaser</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Ecocardiograma</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">Doppler Vascular</a></li>
+                        <li><a href="exames.html" class="hover:text-white transition-colors">MAPA & Holter 24h</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 space-y-4">
+                    <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Atendimento</span>
+                    <a href="https://wa.me/5573981386868" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cardo-crimson text-white font-mono text-xs font-semibold hover:bg-cardo-maroon transition-all">
+                        <span>WhatsApp (73) 98138-6868</span>
+                    </a>
+                    <p class="font-sans text-xs text-slate-400 leading-relaxed">
+                        Edifício Itabuna Trade Center, Sala 401, Av. Princesa Isabel, 395 - Banco Raso, Itabuna - BA.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pt-8 text-center font-mono text-[11px] text-slate-400 space-y-2">
+                <div class="flex items-center justify-center gap-4">
+                    <a href="termos-e-condicoes.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                    <span>&bull;</span>
+                    <a href="politica-de-privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                </div>
+                <div>
+                    &copy; 2026 Cardo Clínica Cardiovascular. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('mobile-close-btn');
+        if (btn && menu && closeBtn) {
+            btn.addEventListener('click', () => { menu.classList.remove('hidden'); menu.classList.add('flex'); });
+            closeBtn.addEventListener('click', () => { menu.classList.add('hidden'); menu.classList.remove('flex'); });
+            menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { menu.classList.add('hidden'); menu.classList.remove('flex'); }); });
+        }
+    </script>
+</body>
+</html>
