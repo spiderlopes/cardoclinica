@@ -1,0 +1,6 @@
+{
+  "name": "Cardo Clínica Cardiovascular",
+  "description": "Website oficial da Cardo Clínica Cardiovascular em Itabuna BA - Cardiologia e Cirurgia Vascular integradas com exames no local.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

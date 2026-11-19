@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cardoclinica.com.br/sitemap.xml
