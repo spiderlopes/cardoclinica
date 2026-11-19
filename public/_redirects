@@ -1,0 +1,3 @@
+# Redireciona o endereço antigo do Netlify para o domínio oficial
+https://cardoclinicacardiovascular.netlify.app/* https://cardoclinica.com.br/:splat 301!
+http://cardoclinicacardiovascular.netlify.app/* https://cardoclinica.com.br/:splat 301!
