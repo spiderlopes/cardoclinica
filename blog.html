@@ -10,37 +10,12 @@
     <meta name="theme-color" content="#2D325E" />
     
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        mono: ['Space Mono', 'monospace'],
-                        logo: ['Oswald', 'Bebas Neue', 'sans-serif'],
-                    },
-                    colors: {
-                        cardo: {
-                            navy: '#2D325E',
-                            crimson: '#BC2E35',
-                            maroon: '#7B161B',
-                            body: '#334155',
-                            dark: '#14172B',
-                            bg: '#F8F9FA',
-                            card: '#FFFFFF',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Lenis Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
@@ -278,24 +253,26 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- (no fim do head, na mesma posição em que o CDN injetava os estilos)  Tailwind CSS compilado (mesma versão e configuração do antigo CDN, sem compilação no navegador) -->
+    <link rel="stylesheet" href="/css/tailwind.css">
 </head>
 <body class="bg-cardo-bg text-cardo-body font-sans antialiased selection:bg-cardo-crimson selection:text-white">
 
     <!-- HEADER DE NAVEGAÇÃO (Sem FAQ no cabeçalho) -->
     <header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-5 flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200/70 transition-all duration-300">
-        <a href="index.html" class="flex items-center gap-3 group">
+        <a href="/" class="flex items-center gap-3 group">
             <img src="assets/images/logo-cardo-clinica-cardiovascular.webp" alt="Cardo Clínica Cardiovascular" width="461" height="400" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         <!-- Menu Desktop (FAQ Removido do Cabeçalho; Blog Ativo) -->
         <nav class="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-cardo-navy">
-            <a href="index.html" class="relative py-1 hover:text-cardo-crimson transition-colors">Início</a>
-            <a href="filosofia.html" class="relative py-1 hover:text-cardo-crimson transition-colors">01. Filosofia</a>
-            <a href="solucoes.html" class="relative py-1 hover:text-cardo-crimson transition-colors">02. Soluções</a>
-            <a href="quem-cuida-de-voce.html" class="relative py-1 hover:text-cardo-crimson transition-colors">03. Quem Cuida de Você</a>
-            <a href="exames.html" class="relative py-1 hover:text-cardo-crimson transition-colors">04. Exames</a>
-            <a href="contato.html" class="relative py-1 hover:text-cardo-crimson transition-colors">05. Contato</a>
-            <a href="blog.html" class="relative py-1 text-cardo-crimson font-bold border-b-2 border-cardo-crimson">06. Blog</a>
+            <a href="/" class="relative py-1 hover:text-cardo-crimson transition-colors">Início</a>
+            <a href="/filosofia" class="relative py-1 hover:text-cardo-crimson transition-colors">01. Filosofia</a>
+            <a href="/solucoes" class="relative py-1 hover:text-cardo-crimson transition-colors">02. Soluções</a>
+            <a href="/quem-cuida-de-voce" class="relative py-1 hover:text-cardo-crimson transition-colors">03. Quem Cuida de Você</a>
+            <a href="/exames" class="relative py-1 hover:text-cardo-crimson transition-colors">04. Exames</a>
+            <a href="/contato" class="relative py-1 hover:text-cardo-crimson transition-colors">05. Contato</a>
+            <a href="/blog" class="relative py-1 text-cardo-crimson font-bold border-b-2 border-cardo-crimson">06. Blog</a>
         </nav>
 
         <!-- Ações & Mobile Button -->
@@ -319,13 +296,13 @@
     <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-cardo-dark/95 backdrop-blur-xl text-white flex-col justify-center px-8">
         <button id="mobile-close-btn" class="absolute top-6 right-6 text-white hover:text-cardo-crimson text-2xl" aria-label="Fechar Menu">&times;</button>
         <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest">
-            <a href="index.html" class="hover:text-cardo-crimson">Início</a>
-            <a href="filosofia.html" class="hover:text-cardo-crimson">01. Filosofia</a>
-            <a href="solucoes.html" class="hover:text-cardo-crimson">02. Soluções</a>
-            <a href="quem-cuida-de-voce.html" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
-            <a href="exames.html" class="hover:text-cardo-crimson">04. Exames</a>
-            <a href="contato.html" class="hover:text-cardo-crimson">05. Contato</a>
-            <a href="blog.html" class="text-cardo-crimson font-bold">06. Blog</a>
+            <a href="/" class="hover:text-cardo-crimson">Início</a>
+            <a href="/filosofia" class="hover:text-cardo-crimson">01. Filosofia</a>
+            <a href="/solucoes" class="hover:text-cardo-crimson">02. Soluções</a>
+            <a href="/quem-cuida-de-voce" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
+            <a href="/exames" class="hover:text-cardo-crimson">04. Exames</a>
+            <a href="/contato" class="hover:text-cardo-crimson">05. Contato</a>
+            <a href="/blog" class="text-cardo-crimson font-bold">06. Blog</a>
         </div>
         <div class="mt-8 pt-8 border-t border-white/20">
             <a href="https://wa.me/5573981386868" target="_blank" class="w-full inline-block py-3 px-6 text-center bg-cardo-crimson rounded-full font-mono text-xs uppercase tracking-wider text-white">Agendar via WhatsApp &rarr;</a>
@@ -337,7 +314,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-12">
             <!-- Breadcrumbs -->
             <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-slate-400 mb-6">
-                <a href="index.html" class="hover:text-cardo-navy">Início</a>
+                <a href="/" class="hover:text-cardo-navy">Início</a>
                 <span>/</span>
                 <span class="text-cardo-crimson font-semibold">06. Blog Editorial</span>
             </div>
@@ -363,7 +340,7 @@
                         <span class="px-3 py-1 rounded-full bg-cardo-crimson/10 text-cardo-crimson font-mono text-xs font-bold uppercase tracking-wider">Destaque Editorial</span>
                         <span class="font-mono text-xs text-slate-400">Cardiologia Preventiva</span>
                     </div>
-                    <a href="artigo-hipertensao-mapa.html" class="group block">
+                    <a href="/artigo-hipertensao-mapa" class="group block">
                         <h2 class="font-serif text-2xl sm:text-4xl font-bold text-cardo-navy leading-snug group-hover:text-cardo-crimson transition-colors">
                             Pressão alta não dói, mas pode custar caro no futuro.
                         </h2>
@@ -372,7 +349,7 @@
                         A hipertensão arterial raramente dá sintomas no início. Muitas pessoas convivem com níveis elevados por anos sem saber, até ocorrer um evento vascular importante. Entenda como o exame MAPA 24h ajuda a enxergar as oscilações silenciosas da pressão.
                     </p>
                     <div class="pt-2">
-                        <a href="artigo-hipertensao-mapa.html" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-cardo-maroon transition-all shadow-sm">
+                        <a href="/artigo-hipertensao-mapa" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider font-semibold hover:bg-cardo-maroon transition-all shadow-sm">
                             <span>Ler Artigo</span>
                             <span>&rarr;</span>
                         </a>
@@ -395,7 +372,7 @@
                             <span>O MAPA 24h traz o mapa real do comportamento pressórico no seu dia a dia.</span>
                         </li>
                     </ul>
-                    <a href="artigo-hipertensao-mapa.html" class="inline-block mt-2 font-mono text-xs text-white hover:text-cardo-crimson underline">Acessar artigo &rarr;</a>
+                    <a href="/artigo-hipertensao-mapa" class="inline-block mt-2 font-mono text-xs text-white hover:text-cardo-crimson underline">Acessar artigo &rarr;</a>
                 </div>
             </div>
         </div>
@@ -422,7 +399,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Saúde Cardiovascular</span>
                         </div>
-                        <a href="artigo-colesterol-alto.html" class="group block mb-3">
+                        <a href="/artigo-colesterol-alto" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Colesterol alto: o exame de sangue que muita gente ignora.</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -430,7 +407,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-colesterol-alto.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-colesterol-alto" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -442,7 +419,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-crimson">Cirurgia Vascular</span>
                         </div>
-                        <a href="artigo-varizes-sinais-iniciais.html" class="group block mb-3">
+                        <a href="/artigo-varizes-sinais-iniciais" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Varizes começam antes de aparecer.</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -450,7 +427,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-varizes-sinais-iniciais.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-varizes-sinais-iniciais" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -462,7 +439,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Circulação Arterial</span>
                         </div>
-                        <a href="artigo-dor-ao-caminhar.html" class="group block mb-3">
+                        <a href="/artigo-dor-ao-caminhar" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Dor ao caminhar pode não ser cansaço ortopédico.</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -470,7 +447,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-dor-ao-caminhar.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-dor-ao-caminhar" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -482,7 +459,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Cuidados Especiais</span>
                         </div>
-                        <a href="artigo-pe-diabetico.html" class="group block mb-3">
+                        <a href="/artigo-pe-diabetico" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Pé diabético: por que uma ferida pequena é um risco grande.</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -490,7 +467,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-pe-diabetico.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-pe-diabetico" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -502,7 +479,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-crimson">Exames Diagnósticos</span>
                         </div>
-                        <a href="artigo-guia-exames-cardiovasculares.html" class="group block mb-3">
+                        <a href="/artigo-guia-exames-cardiovasculares" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">ECG, Holter, MAPA e Ecocardiograma: quando fazer cada um?</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -510,7 +487,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-guia-exames-cardiovasculares.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-guia-exames-cardiovasculares" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -522,7 +499,7 @@
                         <div class="mb-3">
                             <span class="font-mono text-[10px] font-bold uppercase tracking-wider text-cardo-navy">Avaliação Pré-Operatória</span>
                         </div>
-                        <a href="artigo-risco-cirurgico.html" class="group block mb-3">
+                        <a href="/artigo-risco-cirurgico" class="group block mb-3">
                             <h3 class="font-serif text-xl font-bold text-cardo-navy group-hover:text-cardo-crimson transition-colors">Antes da cirurgia, o coração precisa de sinal verde.</h3>
                         </a>
                         <p class="font-sans text-xs text-slate-600 leading-relaxed mb-4">
@@ -530,7 +507,7 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-gray-100">
-                        <a href="artigo-risco-cirurgico.html" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
+                        <a href="/artigo-risco-cirurgico" class="font-mono text-xs text-cardo-crimson font-bold hover:underline flex items-center gap-1.5">
                             <span>Ler Artigo</span> &rarr;
                         </a>
                     </div>
@@ -547,7 +524,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
                 <!-- Coluna Marca -->
                 <div class="lg:col-span-4 space-y-4">
-                    <a href="index.html" class="flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-3">
                         <div class="w-8 h-8 rounded-full bg-cardo-crimson flex items-center justify-center text-white font-serif font-bold text-sm">
                             C
                         </div>
@@ -569,14 +546,14 @@
                 <div class="lg:col-span-3 space-y-3">
                     <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Páginas</span>
                     <ul class="space-y-2 font-mono text-xs text-slate-300">
-                        <li><a href="index.html" class="hover:text-white transition-colors">Início</a></li>
-                        <li><a href="filosofia.html" class="hover:text-white transition-colors">01. Filosofia</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">02. Soluções</a></li>
-                        <li><a href="quem-cuida-de-voce.html" class="hover:text-white transition-colors">03. Quem Cuida de Você</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">04. Exames</a></li>
-                        <li><a href="contato.html" class="hover:text-white transition-colors">05. Contato</a></li>
-                        <li><a href="blog.html" class="text-white font-bold hover:text-cardo-crimson transition-colors">06. Blog</a></li>
-                        <li><a href="faq.html" class="hover:text-white transition-colors">Perguntas Frequentes (FAQ)</a></li>
+                        <li><a href="/" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="/filosofia" class="hover:text-white transition-colors">01. Filosofia</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">02. Soluções</a></li>
+                        <li><a href="/quem-cuida-de-voce" class="hover:text-white transition-colors">03. Quem Cuida de Você</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">04. Exames</a></li>
+                        <li><a href="/contato" class="hover:text-white transition-colors">05. Contato</a></li>
+                        <li><a href="/blog" class="text-white font-bold hover:text-cardo-crimson transition-colors">06. Blog</a></li>
+                        <li><a href="/faq" class="hover:text-white transition-colors">Perguntas Frequentes (FAQ)</a></li>
                     </ul>
                 </div>
 
@@ -584,12 +561,12 @@
                 <div class="lg:col-span-2 space-y-3">
                     <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Especialidades</span>
                     <ul class="space-y-2 font-mono text-xs text-slate-300">
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cardiologia Clínica</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cirurgia Vascular</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Laser & Endolaser</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">Ecocardiograma</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">Doppler Vascular</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">MAPA & Holter 24h</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Cardiologia Clínica</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Cirurgia Vascular</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Laser & Endolaser</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">Ecocardiograma</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">Doppler Vascular</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">MAPA & Holter 24h</a></li>
                     </ul>
                 </div>
 
@@ -615,9 +592,9 @@
             <!-- Faixa Inferior de Direitos -->
             <div class="pt-8 text-center font-mono text-[11px] text-slate-400 space-y-2">
                 <div class="flex items-center justify-center gap-4">
-                    <a href="termos-e-condicoes.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                    <a href="/termos-e-condicoes" class="hover:text-white transition-colors">Termos e Condições</a>
                     <span>&bull;</span>
-                    <a href="politica-de-privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                    <a href="/politica-de-privacidade" class="hover:text-white transition-colors">Políticas de Privacidade</a>
                 </div>
                 <div>
                     &copy; 2026 Cardo Clínica Cardiovascular. Todos os direitos reservados.

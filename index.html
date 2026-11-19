@@ -10,37 +10,12 @@
     <meta name="theme-color" content="#2D325E" />
     
     <!-- Google Fonts: Oswald, Bebas Neue, Playfair Display & Inter -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                        mono: ['Space Mono', 'monospace'],
-                        logo: ['Oswald', 'Bebas Neue', 'sans-serif'],
-                    },
-                    colors: {
-                        cardo: {
-                            navy: '#2D325E',       /* Azul Marinho Editorial */
-                            crimson: '#BC2E35',    /* Vermelho Carmesim Acento */
-                            maroon: '#7B161B',     /* Bordô Nobre */
-                            body: '#334155',       /* Slate Neutro */
-                            dark: '#14172B',       /* Navy Profundo para Seções Escuras */
-                            bg: '#F8F9FA',         /* Fundo Claro Editorial */
-                            card: '#FFFFFF',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Three.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -377,6 +352,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <!-- (no fim do head, na mesma posição em que o CDN injetava os estilos)  Tailwind CSS compilado (mesma versão e configuração do antigo CDN, sem compilação no navegador) -->
+    <link rel="stylesheet" href="/css/tailwind.css">
 </head>
 <body class="editorial-grid selection:bg-cardo-crimson selection:text-white">
 
@@ -384,36 +361,36 @@
          TOP NAVIGATION: Editorial & Minimalista
          ========================================== -->
     <header class="fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-6 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-gray-200/60 transition-all duration-300">
-        <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover flex items-center gap-3 group">
+        <a href="/" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover flex items-center gap-3 group">
             <img src="assets/images/logo-cardo-clinica-cardiovascular.webp" alt="Cardo Clínica Cardiovascular" width="461" height="400" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         <!-- Menu Links com Tipografia Refinada -->
         <nav class="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-cardo-navy">
-            <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover relative py-1 text-cardo-crimson font-bold">
+            <a href="/" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="cursor-hover relative py-1 text-cardo-crimson font-bold">
                 Início
             </a>
-            <a href="filosofia.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/filosofia" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 01. Filosofia
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="solucoes.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/solucoes" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 02. Soluções
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="quem-cuida-de-voce.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/quem-cuida-de-voce" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 03. Quem Cuida de Você
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="exames.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/exames" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 04. Exames
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="contato.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/contato" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 05. Contato
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="blog.html" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
+            <a href="/blog" class="cursor-hover relative py-1 hover:text-cardo-crimson transition-colors group">
                 06. Blog
                 <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardo-crimson transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -440,13 +417,13 @@
     <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-cardo-dark/95 backdrop-blur-xl text-white flex-col justify-center px-8">
         <button id="mobile-close-btn" class="absolute top-6 right-6 text-white hover:text-cardo-crimson text-2xl" aria-label="Fechar Menu">&times;</button>
         <div class="flex flex-col gap-6 font-mono text-sm uppercase tracking-widest">
-            <a href="index.html" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="text-cardo-crimson font-bold">Início</a>
-            <a href="filosofia.html" class="hover:text-cardo-crimson">01. Filosofia</a>
-            <a href="solucoes.html" class="hover:text-cardo-crimson">02. Soluções</a>
-            <a href="quem-cuida-de-voce.html" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
-            <a href="exames.html" class="hover:text-cardo-crimson">04. Exames</a>
-            <a href="contato.html" class="hover:text-cardo-crimson">05. Contato</a>
-            <a href="blog.html" class="hover:text-cardo-crimson">06. Blog</a>
+            <a href="/" onclick="if(window.lenis){ window.lenis.scrollTo(0); } else { window.scrollTo({top:0, behavior:'smooth'}); }" class="text-cardo-crimson font-bold">Início</a>
+            <a href="/filosofia" class="hover:text-cardo-crimson">01. Filosofia</a>
+            <a href="/solucoes" class="hover:text-cardo-crimson">02. Soluções</a>
+            <a href="/quem-cuida-de-voce" class="hover:text-cardo-crimson">03. Quem Cuida de Você</a>
+            <a href="/exames" class="hover:text-cardo-crimson">04. Exames</a>
+            <a href="/contato" class="hover:text-cardo-crimson">05. Contato</a>
+            <a href="/blog" class="hover:text-cardo-crimson">06. Blog</a>
         </div>
         <div class="mt-8 pt-8 border-t border-white/20">
             <a href="https://wa.me/5573981386868" target="_blank" class="w-full inline-block py-3 px-6 text-center bg-cardo-crimson rounded-full font-mono text-xs uppercase tracking-wider text-white">Agendar via WhatsApp &rarr;</a>
@@ -706,7 +683,7 @@
                     <!-- Botão Indicativo Saiba mais direcionado para a página Filosofia -->
                     <div class="pt-3">
                         <a 
-                            href="filosofia.html" 
+                            href="/filosofia" 
                             class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-hover"
                         >
                             <span>Saiba mais</span>
@@ -745,7 +722,7 @@
                 </div>
                 <div class="pt-2 md:pt-0">
                     <a 
-                        href="solucoes.html" 
+                        href="/solucoes" 
                         class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white hover:bg-cardo-crimson text-cardo-navy hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover flex-shrink-0"
                     >
                         <span>Saiba mais</span>
@@ -898,7 +875,7 @@
             <!-- Botão Indicativo Saiba mais ao fim da grade direcionando para Soluções -->
             <div class="mt-12 sm:mt-16 flex justify-center">
                 <a 
-                    href="solucoes.html" 
+                    href="/solucoes" 
                     class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/[0.08] hover:bg-cardo-crimson text-white border border-white/20 hover:border-cardo-crimson font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-lg group cursor-hover"
                 >
                     <span>Saiba mais sobre Nossas Soluções</span>
@@ -932,7 +909,7 @@
                 <!-- Botão Indicativo Saiba mais direcionado para Quem Cuida de Você -->
                 <div class="mt-8 flex justify-center">
                     <a 
-                        href="quem-cuida-de-voce.html" 
+                        href="/quem-cuida-de-voce" 
                         class="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover"
                     >
                         <span>Saiba mais</span>
@@ -1051,7 +1028,7 @@
             <!-- Botão Indicativo Saiba mais direcionando para Quem Cuida de Você -->
             <div class="mt-14 sm:mt-16 flex justify-center">
                 <a 
-                    href="quem-cuida-de-voce.html" 
+                    href="/quem-cuida-de-voce" 
                     class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white hover:bg-cardo-crimson text-cardo-navy hover:text-white border border-gray-200/90 hover:border-cardo-crimson font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md group cursor-hover"
                 >
                     <span>Saiba mais sobre Quem Cuida de Você</span>
@@ -1079,7 +1056,7 @@
                         Agilidade e segurança: saia da consulta com seu exame cardiológico ou vascular agendado ou realizado diretamente no mesmo local.
                     </p>
                     <a 
-                        href="exames.html" 
+                        href="/exames" 
                         class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover flex-shrink-0"
                     >
                         <span>Saiba mais</span>
@@ -1179,7 +1156,7 @@
             <!-- Botão Indicativo Saiba mais direcionando para Exames -->
             <div class="mt-14 sm:mt-16 flex justify-center">
                 <a 
-                    href="exames.html" 
+                    href="/exames" 
                     class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-cardo-navy hover:bg-cardo-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg group cursor-hover"
                 >
                     <span>Saiba mais sobre Nossos Exames</span>
@@ -1241,14 +1218,14 @@
                 <div class="lg:col-span-4 space-y-3">
                     <span class="font-mono text-xs uppercase tracking-widest text-cardo-crimson font-bold block">Menu de Navegação</span>
                     <ul class="space-y-2.5 font-mono text-xs text-slate-300">
-                        <li><a href="index.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>Início</a></li>
-                        <li><a href="filosofia.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>01. Filosofia</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>02. Soluções</a></li>
-                        <li><a href="quem-cuida-de-voce.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>03. Quem Cuida de Você</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>04. Exames Próprios</a></li>
-                        <li><a href="contato.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>05. Contato & Localização</a></li>
-                        <li><a href="blog.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>06. Blog Editorial</a></li>
-                        <li><a href="faq.html" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>Perguntas Frequentes (FAQ)</a></li>
+                        <li><a href="/" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cardo-crimson"></span>Início</a></li>
+                        <li><a href="/filosofia" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>01. Filosofia</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>02. Soluções</a></li>
+                        <li><a href="/quem-cuida-de-voce" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>03. Quem Cuida de Você</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>04. Exames Próprios</a></li>
+                        <li><a href="/contato" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>05. Contato & Localização</a></li>
+                        <li><a href="/blog" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>06. Blog Editorial</a></li>
+                        <li><a href="/faq" class="hover:text-white transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>Perguntas Frequentes (FAQ)</a></li>
                     </ul>
                 </div>
 
@@ -1256,13 +1233,13 @@
                 <div class="lg:col-span-4 space-y-3">
                     <span class="font-mono text-xs uppercase tracking-widest text-slate-400 font-bold block">Especialidades & Cuidados</span>
                     <ul class="space-y-2 font-mono text-xs text-slate-300">
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cardiologia Clínica & Preventiva</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Cirurgia Vascular & Angiologia</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Tratamento de Varizes com Endolaser</a></li>
-                        <li><a href="solucoes.html" class="hover:text-white transition-colors">Laser Transdérmico & Escleroterapia</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">Ecocardiograma Transtorácico</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">Doppler Vascular e de Carótidas</a></li>
-                        <li><a href="exames.html" class="hover:text-white transition-colors">MAPA e Holter 24 Horas</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Cardiologia Clínica & Preventiva</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Cirurgia Vascular & Angiologia</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Tratamento de Varizes com Endolaser</a></li>
+                        <li><a href="/solucoes" class="hover:text-white transition-colors">Laser Transdérmico & Escleroterapia</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">Ecocardiograma Transtorácico</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">Doppler Vascular e de Carótidas</a></li>
+                        <li><a href="/exames" class="hover:text-white transition-colors">MAPA e Holter 24 Horas</a></li>
                     </ul>
                 </div>
 
@@ -1284,9 +1261,9 @@
 
             <div class="pt-8 text-center font-mono text-[11px] text-slate-400 space-y-2">
                 <div class="flex items-center justify-center gap-4">
-                    <a href="termos-e-condicoes.html" class="hover:text-white transition-colors">Termos e Condições</a>
+                    <a href="/termos-e-condicoes" class="hover:text-white transition-colors">Termos e Condições</a>
                     <span>&bull;</span>
-                    <a href="politica-de-privacidade.html" class="hover:text-white transition-colors">Políticas de Privacidade</a>
+                    <a href="/politica-de-privacidade" class="hover:text-white transition-colors">Políticas de Privacidade</a>
                 </div>
                 <div>
                     &copy; 2026 Cardo Clínica Cardiovascular. Todos os direitos reservados.
